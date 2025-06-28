@@ -1,0 +1,297 @@
+<!-- Archivo gestion_de_productos.html creado -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- 
+     * Archivo: gestion_de_productos.html
+     * Propósito/Descripción General: Esta es la página consolidada para la gestión completa de productos
+     * en la Joyería El Dorado. Permite a administradores y vendedores registrar nuevos productos,
+     * buscar productos existentes, modificar cantidades y eliminar productos.
+     * Contiene: Formulario de registro, búsqueda de productos, modificación de stock, eliminación
+     * Relacionado con: gestion_de_productos.js, gestion_de_productos.css, dashboard.html
+     * Última Modificación: Diciembre 2024 - Consolidación de Gestión de Productos
+     -->
+    
+    <!-- Configuración básica del documento HTML -->
+    <meta charset="UTF-8">
+    <!-- Configuración para dispositivos móviles - hace que la página se vea bien en teléfonos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Gestión de Productos - Joyería El Dorado</title>
+    
+    <!-- Enlaces a los archivos de estilos CSS -->
+    <!-- main.css contiene los estilos generales de toda la aplicación -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- gestion_de_productos.css contiene estilos específicos para esta página -->
+    <link rel="stylesheet" href="css/gestion_de_productos.css">
+</head>
+
+<!-- El body tiene la clase 'role-admin-vendor' para aplicar estilos específicos de administrador y vendedor -->
+<body class="role-admin-vendor">
+
+    <!-- --- Sección: Header de la Página --- -->
+    <!-- Esta sección contiene el logo de la joyería y la navegación principal -->
+    <header class="header-container">
+        <div class="logo">
+            <a href="dashboard.html">
+                <img src="assets/logo.jpg" alt="Joyería El Dorado Logo">
+            </a>
+        </div>
+        
+        <!-- Botón para abrir el menú en dispositivos móviles -->
+        <button class="mobile-menu-toggle" aria-label="Abrir menú de navegación">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navegación principal del sitio -->
+        <nav role="navigation" aria-label="Navegación principal">
+            <ul>
+                <li><a href="dashboard.html">Inicio</a></li>
+                <li><a href="lista_de_productos.html">Catálogo</a></li>
+                <li class="nav-cliente-only"><a href="historial_ordenes.html">Mis Pedidos</a></li>
+                <li class="nav-admin-only"><a href="administracion_de_usuarios.html">Gestión de Usuarios</a></li>
+                <li class="nav-admin-vendor-only"><a href="gestion_de_productos.html" aria-current="page">Gestión de Productos</a></li>
+                <li class="nav-admin-vendor-only"><a href="proceso_ventas.html">Procesar Venta</a></li>
+                <li class="nav-admin-only"><a href="reporte_ventas.html">Reportes</a></li>
+                <li class="nav-login-link"><a href="login.html">Iniciar Sesión</a></li>
+                <li class="nav-logout-link"><a href="#">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Icono del carrito (solo visible para clientes) -->
+        <div class="cart-icon-wrapper nav-cliente-only">
+            <a href="carrito.html" aria-label="Ver carrito de compras">
+                <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.24 17 6.5 17H20v-2H6.5c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.9 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+        
+        <!-- Controles de usuario (búsqueda, etc.) -->
+        <div class="user-controls">
+            <form class="search-form" role="search">
+                <input type="search" placeholder="Buscar artículo" class="search-input" aria-label="Buscar productos">
+                <button type="submit" class="search-button" aria-label="Buscar">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <!-- --- Sección Principal: Contenido de la Página --- -->
+    <!-- Esta es la sección principal que contiene las funcionalidades de gestión de productos -->
+    <main class="main-container">
+        
+        <!-- --- Encabezado de la Página --- -->
+        <!-- Contiene el título principal y navegación de breadcrumb -->
+        <div class="page-header">
+            <h1>Gestión de Productos</h1>
+            <nav class="breadcrumb" aria-label="Navegación de breadcrumb">
+                <a href="dashboard.html">Inicio</a> &gt; 
+                <span aria-current="page">Gestión de Productos</span>
+            </nav>
+        </div>
+
+        <!-- --- Sección de Búsqueda y Gestión de Productos Existentes --- -->
+        <!-- Esta sección permite buscar y modificar productos ya registrados -->
+        <div class="card-style product-management-section">
+            <h2>Gestionar Producto Existente</h2>
+            
+            <!-- --- Formulario de Búsqueda y Gestión --- -->
+            <form id="product-management-form">
+                
+                <!-- --- Campo de Búsqueda por Referencia --- -->
+                <div class="form-group">
+                    <label for="product-reference">Referencia del producto</label>
+                    <div class="input-with-icon">
+                        <input type="text" id="product-reference" class="form-input with-icon" placeholder="Ingrese la referencia del producto">
+                        <span class="input-icon search-icon" title="Buscar producto">🔍</span>
+                    </div>
+                </div>
+                
+                <!-- --- Selector de Acción --- -->
+                <div class="form-group">
+                    <label for="action-select">Acción</label>
+                    <select id="action-select" class="form-input">
+                        <option value="modificar">Modificar</option>
+                        <option value="eliminar">Eliminar</option>
+                    </select>
+                </div>
+
+                <!-- --- Información del Producto Encontrado --- -->
+                <div id="product-info-section" class="product-info" style="display: none;">
+                    
+                    <!-- --- Campo ITEM (Nombre del Producto) --- -->
+                    <div class="form-group">
+                        <label for="product-item">ITEM</label>
+                        <input type="text" id="product-item" class="form-input" readonly>
+                    </div>
+                    
+                    <!-- --- Campo CANTIDAD ACTUAL con Botones +/- --- -->
+                    <div class="form-group">
+                        <label for="product-quantity">CANTIDAD ACTUAL</label>
+                        <div class="quantity-controls">
+                            <button type="button" id="decrease-quantity" class="btn-quantity" aria-label="Disminuir cantidad">-</button>
+                            <input type="number" id="product-quantity" class="form-input quantity-input" min="0" readonly>
+                            <button type="button" id="increase-quantity" class="btn-quantity" aria-label="Aumentar cantidad">+</button>
+                        </div>
+                    </div>
+                    
+                    <!-- --- Botón Eliminar --- -->
+                    <div class="form-group">
+                        <button type="button" id="delete-product-btn" class="btn btn-danger">Eliminar</button>
+                    </div>
+                </div>
+
+                <!-- --- Botones de Acción Principales --- -->
+                <div class="form-actions">
+                    <button type="button" id="cancel-management-btn" class="btn btn-secondary">Cancelar</button>
+                    <button type="submit" id="update-product-btn" class="btn btn-primary" disabled>Actualizar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- --- Sección de Registro de Nuevo Producto --- -->
+        <!-- Esta sección permite Gestión de Productoss completamente nuevos -->
+        <div class="card-style product-registration-section">
+            <h2>Registrar Nuevo Producto</h2>
+            
+            <!-- --- Formulario de Registro --- -->
+            <form id="product-registration-form">
+                <div class="form-grid">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="new-product-name">Nombre del Producto</label>
+                            <input type="text" id="new-product-name" class="form-input" required placeholder="Ej: Anillo de Compromiso Solitario">
+                        </div>
+                        <div class="form-group">
+                            <label for="new-product-category">Categoría</label>
+                            <select id="new-product-category" class="form-input" required>
+                                <option value="" disabled selected>Seleccione una categoría</option>
+                                <option value="anillo">Anillo</option>
+                                <option value="collar">Collar</option>
+                                <option value="pulsera">Pulsera</option>
+                                <option value="aretes">Aretes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="new-product-price">Precio (COP)</label>
+                            <input type="number" id="new-product-price" class="form-input" required placeholder="Ej: 2500000">
+                        </div>
+                        <div class="form-group">
+                            <label for="new-product-stock">Stock Inicial</label>
+                            <input type="number" id="new-product-stock" class="form-input" required placeholder="Ej: 10">
+                        </div>
+                    </div>
+
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="new-product-description">Descripción</label>
+                            <textarea id="new-product-description" class="form-input" rows="6" placeholder="Detalles sobre el material, gemas, dimensiones..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Imagen del Producto</label>
+                            <div class="image-uploader" onclick="document.getElementById('new-product-image').click();">
+                                <p>Haz clic o arrastra una imagen aquí</p>
+                                <input type="file" id="new-product-image" accept="image/*" style="display: none;">
+                            </div>
+                            <img id="new-image-preview" src="#" alt="Vista previa de la imagen" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="cancel-registration-btn" class="btn btn-secondary">Cancelar</button>
+                    <button type="submit" id="save-product-btn" class="btn btn-primary">Guardar Producto</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- --- Mensajes de Confirmación, Éxito y Error --- -->
+        <!-- Estos elementos están ocultos por defecto y se muestran según la acción del usuario -->
+        
+        <!-- Mensaje de Confirmación de Eliminación -->
+        <div id="delete-confirmation" class="confirmation-modal" style="display: none;">
+            <div class="confirmation-content">
+                <h3>Confirmar Eliminación</h3>
+                <p>¿Estás seguro de que deseas eliminar este producto?</p>
+                <div class="confirmation-actions">
+                    <button type="button" id="confirm-delete-yes" class="btn btn-danger">SI</button>
+                    <button type="button" id="confirm-delete-no" class="btn btn-secondary">NO</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mensaje de Éxito -->
+        <div id="success-message" class="message success-message" style="display: none;">
+            <p>El artículo ha sido actualizado con éxito</p>
+        </div>
+
+        <!-- Mensaje de Error -->
+        <div id="error-message" class="message error-message" style="display: none;">
+            <p>No se puede eliminar un producto con ventas asociadas.</p>
+        </div>
+    </main>
+
+    <!-- --- Sección: Footer de la Página --- -->
+    <!-- Esta sección contiene información de contacto y enlaces útiles -->
+    <footer class="footer-container">
+        <div class="footer-column">
+            <h3>Nuestra Joyería</h3>
+            <ul>
+                <li><a href="#">Quiénes Somos</a></li>
+                <li><a href="#">Nuestras Tiendas</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Atención al Cliente</h3>
+            <ul>
+                <li><a href="#">Contacto y Soporte</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Guía de Tallas</a></li>
+                <li><a href="#">Garantías</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Productos</h3>
+            <ul>
+                <li><a href="lista_de_productos.html">Anillos</a></li>
+                <li><a href="lista_de_productos.html">Collares</a></li>
+                <li><a href="lista_de_productos.html">Pulseras</a></li>
+                <li><a href="lista_de_productos.html">Aretes</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="YouTube">📺</a>
+            </div>
+        </div>
+        <div class="footer-country">
+            <p>Ubicación: Colombia</p>
+            <a href="#">Cambiar ubicación</a>
+        </div>
+    </footer>
+
+    <!-- --- Scripts JavaScript --- -->
+    <!-- menu.js contiene la lógica de navegación y gestión de roles -->
+    <script src="js/menu.js"></script>
+    <!-- carrito.js contiene la lógica del carrito de compras -->
+    <script src="js/carrito.js"></script>
+    <!-- gestion_de_productos.js contiene la lógica específica de esta página -->
+    <script src="js/gestion_de_productos.js"></script>
+
+</body>
+</html>

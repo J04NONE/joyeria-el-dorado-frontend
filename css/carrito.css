@@ -1,0 +1,223 @@
+
+
+.main-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: var(--color-fuente-principal);
+}
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Dos columnas: 2/3 para items, 1/3 para resumen */
+    gap: 2rem; /* Espacio entre las columnas */
+    align-items: flex-start; /* Alinea las secciones en la parte superior */
+}
+
+/* Estilos base para las tarjetas (cart-items-container y cart-summary) */
+.card-style {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+}
+
+#cart-items-container h3, #cart-items-container p {
+    text-align: center;
+    color: #666;
+}
+
+/* Estilos para la tabla de items del carrito */
+.cart-items-table {
+    width: 100%;
+    border-collapse: collapse; /* Elimina el espacio entre bordes de celda */
+}
+
+.cart-items-table th, .cart-items-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee; /* Borde inferior para separar filas */
+    text-align: left;
+    vertical-align: middle;
+}
+
+.cart-items-table th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+    color: var(--color-fuente-principal);
+}
+
+/* Celda de información del producto (imagen + nombre) */
+.product-info-cell {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.product-info-cell img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover; /* Recorta la imagen para que quepa sin distorsión */
+    border-radius: 4px;
+    flex-shrink: 0; /* Evita que la imagen se encoja */
+}
+
+.product-info-cell strong {
+    color: var(--color-fuente-principal);
+}
+
+/* Control de cantidad (botones + input) */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden; /* Para que los bordes se vean continuos */
+}
+
+.quantity-control button {
+    width: 30px;
+    height: 30px;
+    border: none; /* Elimina el borde individual del botón */
+    background: #f9f9f9;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color-fuente-principal);
+    transition: background-color 0.2s;
+}
+
+.quantity-control button:hover {
+    background-color: #eee;
+}
+
+.quantity-control input {
+    width: 40px; /* Ancho fijo para el input de cantidad */
+    text-align: center;
+    border: none; /* Elimina los bordes individuales del input */
+    border-left: 1px solid #ccc; /* Añade borde entre botones e input */
+    border-right: 1px solid #ccc;
+    height: 30px;
+    font-size: 1rem;
+}
+
+.quantity-control input::-webkit-outer-spin-button,
+.quantity-control input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Oculta las flechas de spin en Chrome/Safari */
+    margin: 0;
+}
+
+/* Botón de eliminar item */
+.btn-icon-danger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #e74c3c; /* Color de peligro para el icono de basura */
+    transition: transform 0.2s;
+}
+
+.btn-icon-danger:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para el resumen de la compra */
+#cart-summary h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--color-fuente-principal);
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.summary-line span:first-child {
+    font-weight: normal;
+}
+
+.summary-line span:last-child {
+    font-weight: bold;
+    color: var(--color-fuente-principal);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 1.5rem 0;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--color-dorado-principal);
+}
+
+.summary-total span:last-child {
+    font-size: 1.5rem;
+}
+
+.btn-full-width {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .cart-layout {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas medianas y pequeñas */
+    }
+    #cart-summary {
+        order: -1; /* Mueve el resumen arriba en móviles para mejor UX */
+        margin-bottom: 2rem; /* Espacio entre resumen y tabla */
+    }
+}
+
+@media (max-width: 576px) {
+    .main-container {
+        padding: 1rem;
+    }
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    .cart-items-table th, .cart-items-table td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    .product-info-cell {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        text-align: left;
+    }
+    .product-info-cell img {
+        width: 60px;
+        height: 60px;
+    }
+    .quantity-control input {
+        width: 30px;
+        height: 28px;
+        font-size: 0.9rem;
+    }
+    .quantity-control button {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
+    }
+} 

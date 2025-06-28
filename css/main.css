@@ -1,0 +1,372 @@
+/*
+ * Archivo: main.css
+ * Propósito/Descripción General: Este es el archivo principal de estilos para la Joyería El Dorado.
+ * Contiene todos los estilos generales que se aplican a toda la aplicación, incluyendo la página
+ * principal, el dashboard, formularios de venta, y componentes reutilizables como modales y alertas.
+ * Contiene: Estilos para la página principal, dashboard, formularios de venta, tablas, modales, alertas
+ * y componentes de interfaz de usuario.
+ * Relacionado con: Todos los archivos HTML del proyecto, base.css, header.css, footer.css
+ * Última Modificación: Junio 2025 - Auditoría de comentarios
+ */
+
+/* --- Importación de Archivos CSS --- */
+/* Aquí importamos todos los archivos CSS que necesitamos para que la página funcione correctamente */
+@import url('reset.css');        /* Elimina los estilos por defecto del navegador */
+@import url('base.css');         /* Estilos básicos como colores y tipografía */
+@import url('header.css');       /* Estilos para la barra de navegación superior */
+@import url('footer.css');       /* Estilos para el pie de página */
+@import url('productos.css');    /* Estilos para las páginas de productos */
+@import url('ventas.css');       /* Estilos para las páginas de ventas */
+@import url('gestion.css');      /* Estilos para las páginas de gestión */
+@import url('formulario-gestion.css'); /* Estilos para formularios de administración */
+
+/* --- Sección: Página Principal (Hero Section) --- */
+/* Esta sección es la imagen principal que aparece en la página de inicio de la Joyería El Dorado.
+   Es como la "portada" de nuestra tienda, con una imagen de fondo y texto que da la bienvenida
+   a los clientes. */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/hero-banner.png');
+    background-size: cover;          /* La imagen cubre todo el espacio disponible */
+    background-position: center;     /* La imagen se centra en el espacio */
+    color: white;                    /* El texto es blanco para que se vea bien sobre la imagen */
+    text-align: center;              /* El texto se centra horizontalmente */
+    padding: 100px 0;                /* Espacio arriba y abajo del contenido (base) */
+    margin-bottom: 40px;             /* Espacio debajo de esta sección */
+}
+
+/* Contenedor para el texto y botones de la página principal */
+.hero-content {
+    max-width: 1200px;          /* Ancho máximo para que no se vea muy ancho en pantallas grandes */
+    margin: 0 auto;             /* Centra el contenido horizontalmente */
+    padding: 0 20px;            /* Espacio a los lados para que no toque los bordes */
+}
+
+/* Título principal de la página de inicio */
+.hero-content h1 {
+    font-size: 3rem;            /* Tamaño grande para el título principal */
+    margin-bottom: 20px;        /* Espacio debajo del título */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para que el texto se vea mejor sobre la imagen */
+}
+
+/* Párrafo descriptivo de la página principal */
+.hero-content p {
+    font-size: 1.2rem;          /* Tamaño de texto para el párrafo */
+    margin-bottom: 30px;        /* Espacio debajo del párrafo */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Sombra más sutil para el párrafo */
+}
+
+/* --- Sección: Dashboard (Panel de Control) --- */
+/* El dashboard es como el "centro de control" donde los empleados pueden ver estadísticas
+   importantes de la joyería, como cuántas ventas se han hecho hoy, cuántos productos hay, etc. */
+
+/* Contenedor para las tarjetas de estadísticas */
+.dashboard-stats {
+    display: grid;              /* Usamos una rejilla para organizar las tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Las tarjetas se ajustan automáticamente */
+    gap: 20px;                  /* Espacio entre las tarjetas */
+    margin-bottom: 40px;        /* Espacio debajo de las estadísticas */
+}
+
+/* Cada tarjeta individual que muestra una estadística */
+.stat-card {
+    background: white;          /* Fondo blanco para la tarjeta */
+    padding: 20px;              /* Espacio interno de la tarjeta */
+    border-radius: 8px;         /* Bordes redondeados para que se vea moderna */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra sutil para dar profundidad */
+    text-align: center;         /* El contenido se centra */
+    border-left: 4px solid var(--primary-color); /* Línea de color a la izquierda */
+}
+
+/* Título de cada estadística (ej: "Ventas de Hoy") */
+.stat-card h3 {
+    color: var(--text-dark);    /* Color oscuro para el título */
+    margin-bottom: 10px;        /* Espacio debajo del título */
+    font-size: 1.1rem;          /* Tamaño del texto del título */
+}
+
+/* Número grande de la estadística (ej: "15") */
+.stat-card .stat-number {
+    font-size: 2rem;            /* Número grande y llamativo */
+    font-weight: bold;          /* Texto en negrita */
+    color: var(--primary-color); /* Color principal de la joyería */
+}
+
+/* Etiqueta descriptiva de la estadística (ej: "ventas") */
+.stat-card .stat-label {
+    color: var(--text-light);   /* Color más claro para la etiqueta */
+    font-size: 0.9rem;          /* Texto más pequeño */
+}
+
+/* --- Sección: Formularios de Venta --- */
+/* Los formularios de venta son donde los empleados registran las ventas de joyas a los clientes.
+   Incluyen información del cliente, productos vendidos, y el total de la venta. */
+
+/* Contenedor principal del formulario de venta */
+.sale-form {
+    background: white;          /* Fondo blanco para el formulario */
+    padding: 30px;              /* Espacio interno del formulario */
+    border-radius: 8px;         /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra para separarlo del fondo */
+    margin-bottom: 30px;        /* Espacio debajo del formulario */
+}
+
+/* Cada sección del formulario (cliente, productos, pago) */
+.sale-section {
+    margin-bottom: 30px;        /* Espacio entre secciones */
+    padding-bottom: 20px;       /* Espacio interno debajo */
+    border-bottom: 1px solid var(--border-color); /* Línea que separa las secciones */
+}
+
+/* La última sección no necesita línea de separación */
+.sale-section:last-child {
+    border-bottom: none;        /* Quitamos la línea de la última sección */
+}
+
+/* Título de cada sección del formulario */
+.sale-section h3 {
+    color: var(--text-dark);    /* Color oscuro para el título */
+    margin-bottom: 15px;        /* Espacio debajo del título */
+    font-size: 1.3rem;          /* Tamaño del título */
+    border-bottom: 2px solid var(--primary-color); /* Línea de color debajo del título */
+    padding-bottom: 5px;        /* Espacio entre el título y la línea */
+}
+
+/* --- Sección: Tablas de Venta --- */
+/* Las tablas muestran los productos que se están vendiendo en una transacción */
+
+/* Tabla que lista los productos de la venta */
+.sale-items-table {
+    width: 100%;                /* La tabla ocupa todo el ancho disponible */
+    border-collapse: collapse;  /* Los bordes de las celdas se unen */
+    margin-top: 15px;           /* Espacio arriba de la tabla */
+}
+
+/* Estilos para las celdas de encabezado y datos */
+.sale-items-table th,
+.sale-items-table td {
+    padding: 12px;              /* Espacio interno de cada celda */
+    text-align: left;           /* El texto se alinea a la izquierda */
+    border-bottom: 1px solid var(--border-color); /* Línea debajo de cada fila */
+}
+
+/* Estilos específicos para los encabezados de la tabla */
+.sale-items-table th {
+    background-color: var(--background-light); /* Fondo gris claro para los encabezados */
+    font-weight: bold;          /* Texto en negrita para los encabezados */
+    color: var(--text-dark);    /* Color oscuro para el texto */
+}
+
+/* --- Sección: Resumen de Venta --- */
+/* El resumen muestra el total de la venta, impuestos, y el monto final */
+
+/* Contenedor del resumen de la venta */
+.sale-summary {
+    background-color: var(--background-light); /* Fondo gris claro */
+    padding: 20px;              /* Espacio interno */
+    border-radius: 8px;         /* Bordes redondeados */
+    margin-top: 20px;           /* Espacio arriba del resumen */
+}
+
+/* Título del resumen */
+.sale-summary h4 {
+    color: var(--text-dark);    /* Color oscuro para el título */
+    margin-bottom: 15px;        /* Espacio debajo del título */
+    font-size: 1.2rem;          /* Tamaño del título */
+}
+
+/* Cada línea del resumen (subtotal, impuestos, total) */
+.sale-summary-details {
+    display: flex;              /* Usamos flexbox para alinear elementos */
+    justify-content: space-between; /* Espacio entre la etiqueta y el valor */
+    align-items: center;        /* Centramos verticalmente */
+    margin-bottom: 10px;        /* Espacio entre líneas */
+}
+
+/* El total final de la venta */
+.sale-summary__total {
+    font-size: 1.3rem;          /* Texto más grande para el total */
+    font-weight: bold;          /* Texto en negrita */
+    color: var(--primary-color); /* Color principal para destacar */
+    border-top: 2px solid var(--primary-color); /* Línea arriba del total */
+    padding-top: 10px;          /* Espacio arriba de la línea */
+    margin-top: 15px;           /* Espacio adicional arriba */
+}
+
+/* --- Sección: Ventanas Emergentes (Modales) --- */
+/* Los modales son ventanas que aparecen sobre la página para mostrar información
+   importante o pedir confirmación al usuario. */
+
+/* Fondo oscuro que aparece detrás del modal */
+.modal {
+    display: none;              /* Por defecto está oculto */
+    position: fixed;            /* Se mantiene fijo en la pantalla */
+    z-index: 1000;              /* Aparece sobre todo lo demás */
+    left: 0;                    /* Desde el borde izquierdo */
+    top: 0;                     /* Desde el borde superior */
+    width: 100%;                /* Ocupa todo el ancho */
+    height: 100%;               /* Ocupa toda la altura */
+    background-color: rgba(0,0,0,0.5); /* Fondo semi-transparente */
+}
+
+/* Contenido principal del modal */
+.modal-content {
+    background-color: white;    /* Fondo blanco para el contenido */
+    margin: 5% auto;            /* Centra el modal vertical y horizontalmente */
+    padding: 30px;              /* Espacio interno */
+    border-radius: 8px;         /* Bordes redondeados */
+    width: 90%;                 /* Ancho del modal */
+    max-width: 500px;           /* Ancho máximo para pantallas grandes */
+    position: relative;         /* Para posicionar el botón de cerrar */
+}
+
+/* Título del modal */
+.modal-content h3 {
+    color: var(--text-dark);    /* Color oscuro para el título */
+    margin-bottom: 20px;        /* Espacio debajo del título */
+    font-size: 1.5rem;          /* Tamaño del título */
+}
+
+/* Botón para cerrar el modal (X) */
+.close-modal-btn {
+    position: absolute;         /* Posición absoluta para colocarlo donde queramos */
+    top: 15px;                  /* Distancia desde arriba */
+    right: 20px;                /* Distancia desde la derecha */
+    background: none;           /* Sin fondo */
+    border: none;               /* Sin borde */
+    font-size: 1.5rem;          /* Tamaño grande para la X */
+    cursor: pointer;            /* Cursor de mano al pasar por encima */
+    color: var(--text-light);   /* Color claro para la X */
+}
+
+/* Efecto al pasar el mouse sobre el botón de cerrar */
+.close-modal-btn:hover {
+    color: var(--text-dark);    /* Color más oscuro al pasar el mouse */
+}
+
+/* --- Sección: Mensajes de Alerta --- */
+/* Las alertas son mensajes que aparecen para informar al usuario sobre algo importante,
+   como si una operación fue exitosa o si hubo un error. */
+
+/* Estilo base para todas las alertas */
+.alert {
+    padding: 15px;              /* Espacio interno */
+    margin-bottom: 20px;        /* Espacio debajo de la alerta */
+    border-radius: 4px;         /* Bordes redondeados */
+    border-left: 4px solid;     /* Línea de color a la izquierda */
+}
+
+/* Alerta de éxito (ej: "Venta registrada correctamente") */
+.alert-success {
+    background-color: #d4edda;  /* Fondo verde claro */
+    border-color: #28a745;      /* Línea verde */
+    color: #155724;             /* Texto verde oscuro */
+}
+
+/* Alerta de error (ej: "Error al guardar la venta") */
+.alert-danger {
+    background-color: #f8d7da;  /* Fondo rojo claro */
+    border-color: #dc3545;      /* Línea roja */
+    color: #721c24;             /* Texto rojo oscuro */
+}
+
+/* Alerta de advertencia (ej: "Verifique los datos ingresados") */
+.alert-warning {
+    background-color: #fff3cd;  /* Fondo amarillo claro */
+    border-color: #ffc107;      /* Línea amarilla */
+    color: #856404;             /* Texto amarillo oscuro */
+}
+
+/* Alerta informativa (ej: "Nuevos productos disponibles") */
+.alert-info {
+    background-color: #d1ecf1;  /* Fondo azul claro */
+    border-color: #17a2b8;      /* Línea azul */
+    color: #0c5460;             /* Texto azul oscuro */
+}
+
+/* --- Sección: Indicador de Carga --- */
+/* El indicador de carga aparece cuando la página está procesando algo,
+   como cuando se está guardando una venta o cargando productos. */
+
+/* Contenedor del indicador de carga */
+.loading {
+    display: inline-block;      /* Se comporta como un elemento en línea */
+    width: 20px;                /* Ancho del indicador */
+    height: 20px;               /* Alto del indicador */
+    border: 3px solid #f3f3f3;  /* Borde gris claro */
+    border-top: 3px solid var(--primary-color); /* Borde superior del color principal */
+    border-radius: 50%;         /* Forma circular */
+    animation: spin 1s linear infinite; /* Animación de rotación continua */
+}
+
+/* Animación de rotación para el indicador de carga */
+@keyframes spin {
+    0% { transform: rotate(0deg); }   /* Empieza sin rotación */
+    100% { transform: rotate(360deg); } /* Termina con una rotación completa */
+}
+
+/* --- Sección: Tooltips (Información Emergente) --- */
+/* Los tooltips son pequeñas ventanas que aparecen al pasar el mouse sobre algo,
+   explicando qué hace ese elemento o botón. */
+
+/* Contenedor del tooltip */
+.tooltip {
+    position: relative;         /* Para posicionar el texto del tooltip */
+    display: inline-block;      /* Se comporta como un elemento en línea */
+}
+
+/* Texto que aparece en el tooltip */
+.tooltip .tooltiptext {
+    visibility: hidden;         /* Por defecto está oculto */
+    width: 120px;               /* Ancho del tooltip */
+    background-color: #555;     /* Fondo oscuro */
+    color: #fff;                /* Texto blanco */
+    text-align: center;         /* Texto centrado */
+    border-radius: 6px;         /* Bordes redondeados */
+    padding: 5px;               /* Espacio interno */
+    position: absolute;         /* Posición absoluta para colocarlo donde queramos */
+    z-index: 1;                 /* Aparece sobre otros elementos */
+    bottom: 125%;               /* Aparece arriba del elemento */
+    left: 50%;                  /* Centrado horizontalmente */
+    margin-left: -60px;         /* Ajuste para centrar perfectamente */
+    opacity: 0;                 /* Invisible por defecto */
+    transition: opacity 0.3s;    /* Transición suave para aparecer/desaparecer */
+}
+
+/* Mostrar el tooltip cuando se pasa el mouse sobre el elemento */
+.tooltip:hover .tooltiptext {
+    visibility: visible;        /* Hacemos visible el tooltip */
+    opacity: 1;                 /* Lo hacemos completamente visible */
+}
+
+/* --- Sección: Diseño Responsivo (Móviles y Tablets) --- */
+/* Estos estilos se aplican cuando la pantalla es más pequeña, como en teléfonos móviles
+   o tablets, para que la página se vea bien en cualquier dispositivo. */
+
+@media (max-width: 768px) {
+    /* Título principal más pequeño en móviles */
+    .hero-content h1 {
+        font-size: 2rem;        /* Tamaño más pequeño para pantallas pequeñas */
+    }
+    
+    /* Párrafo más pequeño en móviles */
+    .hero-content p {
+        font-size: 1rem;        /* Tamaño más pequeño para pantallas pequeñas */
+    }
+    
+    /* Las estadísticas se apilan en una columna en móviles */
+    .dashboard-stats {
+        grid-template-columns: 1fr; /* Una sola columna en móviles */
+    }
+    
+    /* El resumen de venta se apila verticalmente en móviles */
+    .sale-summary-details {
+        flex-direction: column; /* Elementos uno debajo del otro */
+        text-align: center;     /* Texto centrado */
+    }
+    
+    /* El modal ocupa más ancho en móviles */
+    .modal-content {
+        width: 95%;             /* Casi todo el ancho de la pantalla */
+        margin: 10% auto;       /* Más espacio arriba */
+    }
+}

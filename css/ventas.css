@@ -1,0 +1,124 @@
+/* css/ventas.css */
+
+.sales-process-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr 350px; /* Búsqueda | Venta | Resumen */
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.card-style {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    height: 100%;
+}
+
+.search-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--color-fuente-titulos);
+}
+
+.search-results {
+    margin-top: 1rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.producto__card--small {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.producto__card--small:hover {
+    background-color: #f9f9f9;
+}
+.producto__card--small img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.producto__card--small .info h4 {
+    margin: 0;
+    font-size: 0.9rem;
+}
+.producto__card--small .info p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--color-dorado-principal);
+}
+.producto__card--small .btn-sm {
+    margin-left: auto;
+    padding: 0.3rem 0.6rem;
+    font-size: 1rem;
+}
+
+.current-sale-panel h2, .summary-panel h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--color-fuente-titulos);
+}
+
+.sale-items-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.sale-items-table th, .sale-items-table td {
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+.sale-items-table th {
+    font-size: 0.9rem;
+    color: #666;
+}
+.form-input-sm {
+    width: 60px;
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.summary-line, .summary-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+}
+.summary-total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-fuente-titulos);
+}
+
+.payment-methods {
+    margin: 1.5rem 0;
+}
+
+.btn-icon-danger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #cc0000;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .sales-process-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .search-panel {
+        grid-column: 1 / -1; /* Ocupa todo el ancho */
+    }
+}
+@media (max-width: 768px) {
+    .sales-process-grid {
+        grid-template-columns: 1fr; /* Todo en una sola columna */
+    }
+} 

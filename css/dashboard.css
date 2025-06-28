@@ -1,0 +1,376 @@
+/*
+ * Archivo: dashboard.css
+ * Propósito/Descripción General: Este archivo contiene estilos específicos para la página del dashboard
+ * de la Joyería El Dorado. Incluye estilos que sobrescriben o añaden funcionalidad específica
+ * a los estilos base definidos en main.css.
+ * Contiene: Estilos específicos del dashboard, sobrescrituras de componentes base, estadísticas,
+ * productos destacados, acciones rápidas y carrusel de productos.
+ * Relacionado con: main.css, dashboard.html
+ * Última Modificación: Junio 2025 - Refactorización de hero-section
+ */
+
+/* --- Sección: Estilos Específicos del Hero Section para el Dashboard --- */
+/* Estas propiedades sobrescriben o añaden funcionalidad específica al hero-section
+   cuando aparece en la página del dashboard. Los estilos base están en main.css */
+
+.hero-section {
+    padding: 100px 20px;  /* Sobrescribe el padding de main.css para añadir espacio horizontal */
+    border-radius: 12px;  /* Añade la propiedad específica para el dashboard */
+    /* Las propiedades como color, text-align, background, background-size, background-position
+       y margin-bottom ya serán heredadas y controladas por main.css */
+}
+
+/* --- Sección: Estilos Específicos del Contenido del Hero --- */
+/* Estilos específicos para el contenido del hero en el dashboard */
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* --- Sección: Estadísticas del Dashboard --- */
+/* Contenedor para las tarjetas de estadísticas específicas del dashboard */
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Tarjetas de estadísticas con estilo específico del dashboard */
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    border-left: 5px solid var(--primary-color);
+}
+
+.stat-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* --- Sección: Productos Destacados --- */
+/* Sección que muestra los productos más vendidos en el dashboard */
+
+.productos-destacados {
+    margin: 40px 0;
+}
+
+.productos-destacados h2 {
+    text-align: center;
+    color: var(--text-dark);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.producto-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.producto {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.producto-info {
+    padding: 20px;
+}
+
+.producto-titulo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.producto-precio {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.producto-precio-original {
+    text-decoration: line-through;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.producto-descripcion {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.producto-acciones {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-producto {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ver-detalle {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-ver-detalle:hover {
+    background-color: #a07d2a;
+}
+
+.btn-agregar-carrito {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-agregar-carrito:hover {
+    background-color: #b38b29;
+}
+
+/* --- Sección: Acciones Rápidas --- */
+/* Enlaces rápidos a funciones importantes del dashboard */
+
+.acciones-rapidas {
+    margin: 40px 0;
+}
+
+.acciones-rapidas h2 {
+    text-align: center;
+    color: var(--text-dark);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.acciones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.accion-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.accion-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+}
+
+.accion-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.accion-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.accion-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Control de visibilidad por roles para acciones rápidas */
+/* Ocultar por defecto las acciones restringidas */
+.action-admin-only,
+.action-admin-vendor {
+    display: none;
+}
+
+/* Mostrar acciones solo para administradores */
+body.role-admin .action-admin-only,
+body.role-admin .action-admin-vendor {
+    display: block;
+}
+
+/* Mostrar acciones para vendedores (admin-vendor incluye vendedores) */
+body.role-vendor .action-admin-vendor {
+    display: block;
+}
+
+/* Los clientes (role-cliente) mantienen display: none por defecto */
+
+/* --- Reglas de Visibilidad por Rol para el Contenido del Dashboard --- */
+/* 1. Ocultar por defecto los componentes específicos de rol */
+.action-admin-vendor-only,
+.action-cliente-only {
+    display: none;
+}
+
+/* 2. Mostrar las estadísticas SOLO para admin y vendedor */
+body.role-admin .action-admin-vendor-only,
+body.role-vendor .action-admin-vendor-only {
+    display: grid; /* O el display original que tenga la sección de estadísticas */
+}
+
+/* 3. Mostrar el carrusel SOLO para cliente */
+body.role-cliente .action-cliente-only {
+    display: block; /* O el display adecuado para el carrusel */
+}
+
+/* --- Estilos para el Carrusel de Productos --- */
+.product-carousel {
+    padding: 2rem 0;
+    margin: 40px 0;
+}
+
+.product-carousel .section-title {
+    text-align: center;
+    color: var(--text-dark);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.carousel-track {
+    display: flex;
+    overflow-x: auto; /* Permite el scroll horizontal */
+    padding-bottom: 1.5rem; /* Espacio para la barra de scroll */
+    gap: 1.5rem;
+    scroll-behavior: smooth;
+}
+
+/* Estilo para la barra de scroll */
+.carousel-track::-webkit-scrollbar {
+    height: 8px;
+}
+
+.carousel-track::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Aseguramos que las tarjetas dentro del carrusel no se encojan */
+.carousel-track .producto__card {
+    flex: 0 0 280px; /* No crece, no se encoge, base de 280px */
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.carousel-track .producto__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Asegurar que las imágenes dentro del producto__card sean responsive */
+.producto__card .producto__imagen {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.producto__card .producto__nombre {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.producto__card .producto__precio {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.producto__card .producto__tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+} 

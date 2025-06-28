@@ -1,0 +1,280 @@
+/*
+ * Archivo: base.css
+ * Propósito/Descripción General: Este archivo contiene los estilos fundamentales que se aplican
+ * a toda la aplicación de la Joyería El Dorado. Define los colores, tipografía, botones, formularios
+ * y elementos básicos que se usan en todas las páginas.
+ * Contiene: Variables de colores, estilos de botones, formularios, tablas, contenedores principales
+ * y reglas de navegación basadas en roles de usuario.
+ * Relacionado con: Todos los archivos HTML del proyecto, main.css, header.css
+ * Última Modificación: Junio 2025 - Auditoría de comentarios
+ */
+
+/* --- Sección: Estilos Básicos del Cuerpo de la Página --- */
+/* Estos estilos se aplican a toda la página web y definen cómo se ve el texto y el contenido
+   básico. Es como el "estilo por defecto" de toda la aplicación. */
+
+/* Estilo base del cuerpo de la página */
+body {
+    font-family: Arial, sans-serif; /* Usamos una fuente simple y fácil de leer */
+    color: #333;                   /* Color del texto en tono gris oscuro para buena legibilidad */
+    line-height: 1.6;              /* Espaciado entre líneas para que el texto sea más fácil de leer */
+}
+
+/* --- Sección: Variables de Colores (Paleta de la Joyería) --- */
+/* Las variables CSS son como "cajas" que guardan colores específicos de la Joyería El Dorado.
+   Esto nos permite usar los mismos colores en toda la aplicación sin tener que recordar
+   los códigos de color cada vez. */
+
+:root {
+    --primary-color: #d4af37;      /* Dorado principal - el color más importante de la joyería */
+    --secondary-color: #8b4513;    /* Marrón oscuro - complementa el dorado */
+    --accent-color: #ffd700;       /* Dorado brillante - para destacar elementos importantes */
+    --text-dark: #333;             /* Texto oscuro - para títulos y texto principal */
+    --text-light: #666;            /* Texto claro - para texto secundario y descripciones */
+    --background-light: #f9f9f9;   /* Fondo claro - para secciones y tarjetas */
+    --border-color: #ddd;          /* Color de bordes - para separar elementos */
+    --success-color: #28a745;      /* Verde - para mensajes de éxito */
+    --danger-color: #dc3545;       /* Rojo - para mensajes de error */
+    --info-color: #17a2b8;         /* Azul - para mensajes informativos */
+    --warning-color: #ffc107;      /* Amarillo - para mensajes de advertencia */
+}
+
+/* --- Sección: Estilos de Botones --- */
+/* Los botones son elementos importantes en la aplicación. Aquí definimos cómo se ven
+   todos los botones y sus diferentes variaciones (primario, secundario, peligro, etc.). */
+
+/* Estilo base para todos los botones */
+.btn {
+    display: inline-block;         /* El botón se comporta como un elemento en línea */
+    padding: 10px 20px;           /* Espacio interno del botón (arriba/abajo, izquierda/derecha) */
+    border: none;                 /* Sin borde para un look moderno */
+    border-radius: 4px;           /* Bordes redondeados */
+    text-decoration: none;        /* Sin subrayado en el texto */
+    font-weight: bold;            /* Texto en negrita */
+    cursor: pointer;              /* Cursor de mano al pasar por encima */
+    transition: all 0.3s ease;    /* Transición suave para todos los cambios */
+    text-align: center;           /* Texto centrado dentro del botón */
+}
+
+/* Botón principal (el más importante, como "Guardar" o "Comprar") */
+.btn-primary {
+    background-color: var(--primary-color); /* Fondo dorado */
+    color: white;                 /* Texto blanco para contraste */
+}
+
+/* Efecto al pasar el mouse sobre el botón principal */
+.btn-primary:hover {
+    background-color: var(--secondary-color); /* Cambia a marrón oscuro */
+    transform: translateY(-2px);  /* Se eleva ligeramente */
+}
+
+/* Botón secundario (menos importante, como "Cancelar") */
+.btn-secondary {
+    background-color: var(--text-light); /* Fondo gris */
+    color: white;                 /* Texto blanco */
+}
+
+/* Efecto al pasar el mouse sobre el botón secundario */
+.btn-secondary:hover {
+    background-color: var(--text-dark); /* Cambia a gris más oscuro */
+}
+
+/* Botón de peligro (para acciones destructivas como "Eliminar") */
+.btn-danger {
+    background-color: var(--danger-color); /* Fondo rojo */
+    color: white;                 /* Texto blanco */
+}
+
+/* Efecto al pasar el mouse sobre el botón de peligro */
+.btn-danger:hover {
+    background-color: #c82333;    /* Rojo más oscuro */
+}
+
+/* Botón de éxito (para acciones positivas como "Confirmar") */
+.btn-success {
+    background-color: var(--success-color); /* Fondo verde */
+    color: white;                 /* Texto blanco */
+}
+
+/* Efecto al pasar el mouse sobre el botón de éxito */
+.btn-success:hover {
+    background-color: #218838;    /* Verde más oscuro */
+}
+
+/* Botón informativo (para información o ayuda) */
+.btn-info {
+    background-color: var(--info-color); /* Fondo azul */
+    color: white;                 /* Texto blanco */
+}
+
+/* Efecto al pasar el mouse sobre el botón informativo */
+.btn-info:hover {
+    background-color: #138496;    /* Azul más oscuro */
+}
+
+/* Botón que ocupa todo el ancho disponible */
+.btn-full-width {
+    width: 100%;                  /* Ocupa todo el ancho del contenedor */
+}
+
+/* --- Sección: Estilos de Formularios --- */
+/* Los formularios son donde los usuarios ingresan información. Aquí definimos cómo se ven
+   los campos de texto, etiquetas, y otros elementos de formulario. */
+
+/* Grupo de elementos de formulario (etiqueta + campo) */
+.input-group {
+    margin-bottom: 15px;          /* Espacio entre grupos de campos */
+}
+
+/* Etiqueta del campo (ej: "Nombre del Cliente") */
+.input-group label {
+    display: block;               /* La etiqueta ocupa toda una línea */
+    margin-bottom: 5px;           /* Espacio entre la etiqueta y el campo */
+    font-weight: bold;            /* Texto en negrita */
+    color: var(--text-dark);      /* Color oscuro para la etiqueta */
+}
+
+/* Campos de entrada (texto, selección, área de texto) */
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;                  /* Ocupa todo el ancho disponible */
+    padding: 10px;                /* Espacio interno del campo */
+    border: 1px solid var(--border-color); /* Borde gris claro */
+    border-radius: 4px;           /* Bordes redondeados */
+    font-size: 14px;              /* Tamaño de fuente */
+}
+
+/* Efecto cuando el campo está seleccionado (focus) */
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    outline: none;                /* Quitamos el contorno por defecto del navegador */
+    border-color: var(--primary-color); /* Borde dorado cuando está seleccionado */
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.3); /* Sombra dorada sutil */
+}
+
+/* --- Sección: Estilos de Tablas --- */
+/* Las tablas se usan para mostrar información organizada, como listas de productos,
+   historial de ventas, o datos de clientes. */
+
+/* Tabla principal */
+table {
+    width: 100%;                  /* Ocupa todo el ancho disponible */
+    border-collapse: collapse;    /* Los bordes de las celdas se unen */
+    margin: 20px 0;               /* Espacio arriba y abajo de la tabla */
+}
+
+/* Celdas de encabezado y datos */
+th, td {
+    border: 1px solid var(--border-color); /* Borde gris claro */
+    padding: 12px;                /* Espacio interno de cada celda */
+    text-align: left;             /* Texto alineado a la izquierda */
+}
+
+/* Encabezados de la tabla */
+th {
+    background-color: var(--background-light); /* Fondo gris claro */
+    font-weight: bold;            /* Texto en negrita */
+    color: var(--text-dark);      /* Color oscuro */
+}
+
+/* Filas alternadas (una clara, una oscura) para mejor legibilidad */
+tr:nth-child(even) {
+    background-color: #f9f9f9;    /* Fondo gris muy claro */
+}
+
+/* Efecto al pasar el mouse sobre una fila */
+tr:hover {
+    background-color: #f5f5f5;    /* Fondo gris claro al pasar el mouse */
+}
+
+/* --- Sección: Contenedores Principales --- */
+/* Los contenedores son "cajas" que organizan el contenido de la página y lo mantienen
+   centrado y con un ancho apropiado. */
+
+/* Contenedor principal de la página */
+.main-container {
+    max-width: 1200px;            /* Ancho máximo para pantallas grandes */
+    margin: 0 auto;               /* Centra el contenido horizontalmente */
+    padding: 20px;                /* Espacio interno del contenedor */
+}
+
+/* Encabezado de página (título + botones de acción) */
+.page-header {
+    display: flex;                /* Usamos flexbox para alinear elementos */
+    justify-content: space-between; /* Espacio entre el título y los botones */
+    align-items: center;          /* Centramos verticalmente */
+    margin-bottom: 30px;          /* Espacio debajo del encabezado */
+    border-bottom: 2px solid var(--primary-color); /* Línea dorada debajo */
+    padding-bottom: 15px;         /* Espacio entre el contenido y la línea */
+}
+
+/* Título principal de la página */
+.page-header h1 {
+    font-size: 2rem;              /* Tamaño grande para el título */
+    font-weight: bold;            /* Texto en negrita */
+    color: var(--text-dark);      /* Color oscuro */
+}
+
+/* --- Sección: Clases de Utilidad --- */
+/* Estas son clases pequeñas que se pueden aplicar a cualquier elemento para
+   darle un estilo específico rápidamente. */
+
+.text-center {
+    text-align: center;           /* Centra el texto horizontalmente */
+}
+
+.text-right {
+    text-align: right;            /* Alinea el texto a la derecha */
+}
+
+.mb-20 {
+    margin-bottom: 20px;          /* Espacio debajo del elemento */
+}
+
+.mt-20 {
+    margin-top: 20px;             /* Espacio arriba del elemento */
+}
+
+/* --- Sección: Reglas de Navegación Basadas en Roles --- */
+/* Estas reglas controlan qué enlaces de navegación ve cada tipo de usuario
+   (invitado, cliente, vendedor, administrador) en la barra de navegación. */
+
+/* Por defecto, ocultar todos los enlaces específicos de rol y el logout */
+/* Y mostrar solo el enlace de login para el invitado */
+.nav-logout-link,
+.nav-admin-only,
+.nav-admin-vendor-only,
+.nav-cliente-only {
+    display: none !important;     /* Ocultamos estos enlaces por defecto */
+}
+.nav-login-link {
+    display: list-item !important; /* Mostramos el enlace de "Iniciar Sesión" por defecto */
+}
+
+/* Lógica para usuarios logueados: Ocultar login, mostrar logout y enlaces de su rol */
+body.role-cliente .nav-login-link,
+body.role-vendor .nav-login-link,
+body.role-admin .nav-login-link {
+    display: none !important;     /* Ocultamos el login para usuarios logueados */
+}
+
+body.role-cliente .nav-logout-link,
+body.role-vendor .nav-logout-link,
+body.role-admin .nav-logout-link {
+    display: list-item !important; /* Mostramos el logout para usuarios logueados */
+}
+
+body.role-cliente .nav-cliente-only { 
+    display: list-item !important; /* Mostramos enlaces solo para clientes */
+}
+
+body.role-vendor .nav-admin-vendor-only { 
+    display: list-item !important; /* Mostramos enlaces para vendedores y admins */
+}
+
+body.role-admin .nav-admin-only,
+body.role-admin .nav-admin-vendor-only { 
+    display: list-item !important; /* Mostramos enlaces solo para administradores */
+}

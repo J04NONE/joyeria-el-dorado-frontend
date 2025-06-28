@@ -1,0 +1,376 @@
+/* Margen para las secciones de productos y comerciales */
+.productos-destacados, .informacion-comercial, .productos-novedades {
+    margin: 20px 0;
+    /* Espaciado vertical entre las secciones */
+}
+
+/* Ajusta el tamaño máximo de las imágenes en los productos */
+.producto img {
+    max-width: 100%;
+    /* La imagen nunca será mayor que el tamaño del contenedor */
+}
+/* Ajuste de Productos Destacados para que el título aparezca encima de los productos */
+.productos-destacados, .productos-novedades  {
+    margin: 20px 0;
+    text-align: center;
+    /* Alinea el título y los productos al centro */
+     font-weight: bold; /* Aplica negrita al título */
+}
+
+.productos-destacados h2, .productos-novedades h2 {
+    width: 100%;
+    /* El título tomará el ancho completo */
+    margin-bottom: 20px;
+    /* Añade un margen inferior para separar el título de los productos */
+}
+
+.productos-destacados .producto-lista, .productos-novedades {
+    display: flex;
+    /* Flexbox para organizar los productos */
+    justify-content: center;
+    /* Centra los productos */
+    flex-wrap: wrap;
+    /* Permite que los productos se ajusten a nuevas líneas si es necesario */
+}
+
+.producto {
+    margin: 10px;
+    /* Margen alrededor de cada producto */
+    text-align: center;
+    /* Alinea el contenido del producto al centro */
+    transition: transform 0.3s ease;
+    /* Transición suave para el efecto de agrandamiento */
+}
+
+/* Estilos para la sección de productos destacados */
+.productos-destacados, .productos-novedades {
+    display: flex;
+    /* Flexbox para organizar los productos en una fila */
+    justify-content: center;
+    /* Centra los productos dentro de la página */
+    flex-wrap: wrap;
+    /* Permite que los productos se ajusten a múltiples líneas si es necesario */
+}
+
+/* Estilos individuales para cada producto */
+.producto {
+    margin: 10px;
+    /* Margen alrededor de cada producto */
+    text-align: center;
+    /* Alinea el texto y las imágenes en el centro del contenedor */
+    transition: transform 0.3s ease;
+    /* Transición suave para el efecto de agrandamiento */
+}
+
+/* Efecto de agrandamiento para el producto completo al hacer hover */
+.producto:hover {
+    transform: scale(1.05);
+    /* Agranda tanto la imagen como el texto al pasar el mouse */
+}
+/* Cambia el color del texto al hacer hover */
+.producto:hover p {
+    color: #000000; /* Cambia el color del texto a negro */
+}
+.producto:hover img {
+    transform: none;
+    /* Evita que la imagen se agrande dos veces, ya que el contenedor ya se está agrandando */
+}
+
+/* Estilos para las secciones de productos */
+.productos-destacados, .productos-novedades {
+    margin: 40px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Títulos de secciones */
+.productos-destacados h2, .productos-novedades h2 {
+    width: 100%;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+    font-size: 2rem;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* Contenedor de lista de productos */
+.productos-destacados .producto-lista, .productos-novedades {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Estilos individuales para cada producto */
+.producto {
+    margin: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 280px;
+    min-width: 250px;
+}
+
+/* Imagen del producto */
+.producto img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Información del producto */
+.producto-info {
+    padding: 20px;
+}
+
+.producto-titulo {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.producto-precio {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.producto-descripcion {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+/* Botones de acción del producto */
+.producto-acciones {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-producto {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+.btn-ver-detalle {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-ver-detalle:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.btn-agregar-carrito {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.btn-agregar-carrito:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* Efecto de agrandamiento para el producto completo al hacer hover */
+.producto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Cambia el color del texto al hacer hover */
+.producto:hover .producto-titulo {
+    color: var(--primary-color);
+}
+
+.producto:hover img {
+    transform: scale(1.05);
+}
+
+/* Estilos para productos destacados */
+.producto-destacado {
+    border: 3px solid var(--accent-color);
+    position: relative;
+}
+
+.producto-destacado::before {
+    content: "★ DESTACADO";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* Estilos para productos con descuento */
+.producto-descuento {
+    position: relative;
+}
+
+.producto-descuento::after {
+    content: "-20%";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--danger-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.producto-descuento .producto-precio-original {
+    text-decoration: line-through;
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+/* Grid de productos para catálogo */
+.producto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Filtros de productos */
+.filtros-productos {
+    background-color: var(--background-light);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+}
+
+.filtros-productos h3 {
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.filtros-grupo {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filtro-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.filtro-item label {
+    font-weight: bold;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.filtro-item select,
+.filtro-item input {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Paginación */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.paginacion .btn {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    background-color: white;
+    color: var(--text-dark);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.paginacion .btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.paginacion .btn.activo {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.numero-pagina {
+    padding: 8px 12px;
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .producto-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .producto {
+        max-width: 100%;
+        min-width: auto;
+    }
+    
+    .filtros-grupo {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filtro-item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .producto-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .producto-acciones {
+        flex-direction: column;
+    }
+    
+    .btn-producto {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}

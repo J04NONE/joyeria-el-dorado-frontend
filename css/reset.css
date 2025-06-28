@@ -1,0 +1,25 @@
+/*
+ * Archivo: reset.css
+ * Propósito/Descripción General: Este archivo "resetea" o elimina todos los estilos por defecto
+ * que los navegadores web aplican automáticamente a los elementos HTML. Esto asegura que
+ * nuestra aplicación de la Joyería El Dorado se vea igual en todos los navegadores.
+ * Contiene: Reglas CSS que eliminan márgenes, padding y otros estilos por defecto del navegador
+ * Relacionado con: Todos los archivos CSS del proyecto, base.css, main.css
+ * Última Modificación: Junio 2025 - Auditoría de comentarios
+ */
+
+/* --- Sección: Reseteo Universal de Estilos --- */
+/* Esta regla se aplica a TODOS los elementos HTML de la página y elimina
+   las diferencias de estilo que cada navegador aplica por defecto. */
+
+/* El asterisco (*) significa "todos los elementos" */
+* {
+    margin: 0;                     /* Elimina todos los márgenes externos */
+    padding: 0;                    /* Elimina todo el relleno interno */
+    box-sizing: border-box;        /* Incluye el padding y border en el ancho/alto total del elemento */
+    /* 
+     * Elimina márgenes, relleno y ajusta el tamaño de los elementos para evitar 
+     * inconsistencias entre navegadores. Esto es fundamental para que nuestra
+     * joyería se vea igual en Chrome, Firefox, Safari, etc.
+     */
+}

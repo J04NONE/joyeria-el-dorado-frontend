@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- 
+     * Archivo: dashboard.html
+     * Propósito/Descripción General: Esta es la página principal (dashboard) de la Joyería El Dorado.
+     * Sirve como punto de entrada para todos los usuarios y muestra contenido diferente según
+     * el rol del usuario (invitado, cliente, vendedor, administrador).
+     * Contiene: Header con navegación, sección hero, estadísticas, productos destacados, acciones rápidas
+     * Relacionado con: main.css, dashboard.css, menu.js, todos los archivos HTML del proyecto
+     * Última Modificación: Diciembre 2024 - Auditoría de comentarios
+     -->
+    
+    <!-- Configuración básica del documento HTML -->
+    <meta charset="UTF-8">
+    <!-- Configuración para dispositivos móviles - hace que la página se vea bien en teléfonos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Dashboard - Joyería El Dorado</title>
+    
+    <!-- Enlaces a los archivos de estilos CSS -->
+    <!-- main.css contiene los estilos generales de toda la aplicación -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- dashboard.css contiene estilos específicos para esta página principal -->
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<!-- El body no tiene clases específicas porque los estilos se aplican globalmente -->
+<body>
+    
+    <!-- --- Sección: Header Principal (Barra de Navegación) --- -->
+    <!-- Esta sección contiene el logo, menú de navegación, carrito y búsqueda -->
+    <header>
+        
+        <!-- --- Logo de la Joyería --- -->
+        <!-- El logo aparece en la esquina superior izquierda y permite volver al dashboard -->
+            <div class="logo">
+                <a href="dashboard.html">
+                <!-- Imagen del logo de la Joyería El Dorado -->
+                    <img src="assets/logo.jpg" alt="Joyería El Dorado Logo">
+                </a>
+            </div>
+            
+        <!-- --- Botón de Menú Móvil (Hamburguesa) --- -->
+        <!-- Este botón solo aparece en pantallas pequeñas y permite abrir/cerrar el menú -->
+            <button class="mobile-menu-toggle" aria-label="Abrir menú de navegación">
+            <!-- Las tres líneas que forman el ícono hamburguesa -->
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        <!-- --- Menú de Navegación Principal --- -->
+        <!-- Este menú contiene todos los enlaces a las diferentes páginas de la joyería -->
+        <nav role="navigation" aria-label="Navegación principal">
+                <ul>
+                <!-- Enlace a la página actual (dashboard) -->
+                    <li><a href="dashboard.html" aria-current="page">Inicio</a></li>
+                <!-- Enlace al catálogo de productos - visible para todos -->
+                <li><a href="lista_de_productos.html">Catálogo</a></li>
+                <!-- Enlace a historial de pedidos - solo visible para clientes logueados -->
+                <li class="nav-cliente-only"><a href="historial_ordenes.html">Mis Pedidos</a></li>
+                <!-- Enlace a gestión de usuarios - solo visible para administradores -->
+                <li class="nav-admin-only"><a href="administracion_de_usuarios.html">Gestión de Usuarios</a></li>
+                <!-- Enlace a registro de productos - visible para vendedores y administradores -->
+                <li class="nav-admin-vendor-only"><a href="gestion_de_productos.html">Gestión de Productos</a></li>
+                <!-- Enlace a procesar ventas - visible para vendedores y administradores -->
+                <li class="nav-admin-vendor-only"><a href="proceso_ventas.html">Procesar Venta</a></li>
+                <!-- Enlace a reportes - solo visible para administradores -->
+                <li class="nav-admin-only"><a href="reporte_ventas.html">Reportes</a></li>
+                <!-- Enlace de login - solo visible para usuarios no logueados -->
+                <li class="nav-login-link"><a href="login.html">Iniciar Sesión</a></li>
+                <!-- Enlace de logout - solo visible para usuarios logueados -->
+                <li class="nav-logout-link"><a href="#">Cerrar Sesión</a></li>
+                </ul>
+            </nav>
+            
+        <!-- --- Ícono del Carrito de Compras --- -->
+        <!-- Este ícono solo aparece para clientes logueados y muestra cuántos productos tienen en el carrito -->
+        <div class="cart-icon-wrapper nav-cliente-only">
+            <a href="carrito.html" aria-label="Ver carrito de compras">
+                <!-- Ícono SVG del carrito de compras -->
+                <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.24 17 6.5 17H20v-2H6.5c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.9 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+                <!-- Contador que muestra cuántos productos hay en el carrito -->
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+        
+        <!-- --- Controles de Usuario (Búsqueda) --- -->
+        <!-- Esta sección contiene el formulario de búsqueda de productos -->
+            <div class="user-controls">
+            <!-- Formulario de búsqueda -->
+                <form class="search-form" role="search">
+                <!-- Campo de texto para ingresar la búsqueda -->
+                    <input type="search" placeholder="Buscar artículo" class="search-input" aria-label="Buscar productos">
+                <!-- Botón para ejecutar la búsqueda -->
+                <button type="submit" class="search-button" aria-label="Buscar">
+                    <!-- Ícono SVG de lupa para el botón de búsqueda -->
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+    </header>
+
+    <!-- --- Sección Principal del Contenido --- -->
+    <!-- Esta es la sección principal que contiene todo el contenido del dashboard -->
+    <main class="main-container">
+        
+        <!-- --- Sección Hero (Banner Principal) --- -->
+        <!-- Esta sección es la primera que ven los usuarios y da la bienvenida a la joyería -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <!-- Título principal de bienvenida -->
+                <h1>Bienvenido a Joyería El Dorado</h1>
+                <!-- Descripción de la joyería -->
+                <p>Descubre nuestra exclusiva colección de joyas finas y accesorios elegantes</p>
+                <!-- Botón que lleva al catálogo de productos -->
+                <a href="lista_de_productos.html" class="btn btn-primary">Ver Catálogo</a>
+                    </div>
+        </section>
+
+        <!-- --- Carrusel de Productos para Clientes --- -->
+        <!-- Esta sección solo aparece para clientes logueados y muestra productos recomendados -->
+        <section class="product-carousel action-cliente-only">
+            <!-- Título de la sección -->
+            <h2 class="section-title">Novedades para Ti</h2>
+            <!-- Contenedor del carrusel de productos -->
+            <div class="carousel-track">
+                
+                <!-- --- Tarjeta de Producto 1 --- -->
+                <!-- Cada tarjeta muestra información de un producto específico -->
+                <div class="producto__card">
+                    <!-- Etiqueta que indica que es un producto nuevo -->
+                    <span class="producto__tag">Nuevo</span>
+                    <!-- Imagen del producto -->
+                    <img src="assets/anillo_diamante.jpg" alt="Anillo Solitario" class="producto__imagen">
+                    <!-- Nombre del producto -->
+                    <h3 class="producto__nombre">Anillo Solitario de Diamante</h3>
+                    <!-- Precio del producto -->
+                    <p class="producto__precio">$1,800,000 COP</p>
+                    <!-- Botón para ver más detalles del producto -->
+                    <a href="detallle_de_producto.html" class="btn btn-secondary">Ver Detalle</a>
+                </div>
+                
+                <!-- --- Tarjeta de Producto 2 --- -->
+                <div class="producto__card">
+                    <!-- Imagen del producto -->
+                    <img src="assets/anillos_dobles.jpeg" alt="Collar de Esmeralda" class="producto__imagen">
+                    <!-- Nombre del producto -->
+                    <h3 class="producto__nombre">Collar de Esmeralda</h3>
+                    <!-- Precio del producto -->
+                    <p class="producto__precio">$2,500,000 COP</p>
+                    <!-- Botón para ver más detalles del producto -->
+                    <a href="detallle_de_producto.html" class="btn btn-secondary">Ver Detalle</a>
+                        </div>
+                
+                <!-- --- Tarjeta de Producto 3 --- -->
+                <div class="producto__card">
+                    <!-- Etiqueta que indica que es un producto popular -->
+                    <span class="producto__tag">Popular</span>
+                    <!-- Imagen del producto -->
+                    <img src="assets/anillo_diamante.jpg" alt="Pulsera de Oro" class="producto__imagen">
+                    <!-- Nombre del producto -->
+                    <h3 class="producto__nombre">Pulsera de Oro 18k</h3>
+                    <!-- Precio del producto -->
+                    <p class="producto__precio">$950,000 COP</p>
+                    <!-- Botón para ver más detalles del producto -->
+                    <a href="detallle_de_producto.html" class="btn btn-secondary">Ver Detalle</a>
+                        </div>
+                
+                <!-- --- Tarjeta de Producto 4 --- -->
+                <div class="producto__card">
+                    <!-- Imagen del producto -->
+                    <img src="assets/anillos_dobles.jpeg" alt="Aretes Diamante" class="producto__imagen">
+                    <!-- Nombre del producto -->
+                    <h3 class="producto__nombre">Aretes Diamante Pura Luz</h3>
+                    <!-- Precio del producto -->
+                    <p class="producto__precio">$1,500,000 COP</p>
+                    <!-- Botón para ver más detalles del producto -->
+                    <a href="detallle_de_producto.html" class="btn btn-secondary">Ver Detalle</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- Estadísticas del Dashboard --- -->
+        <!-- Esta sección solo aparece para vendedores y administradores -->
+        <!-- Muestra estadísticas importantes del negocio como ventas, productos, etc. -->
+        <section class="dashboard-stats action-admin-vendor-only">
+            
+            <!-- --- Tarjeta de Estadística: Ventas del Día --- -->
+            <!-- Muestra cuánto dinero se ha vendido hoy -->
+            <div class="stat-card">
+                <!-- Título de la estadística -->
+                <h3>Ventas del Día</h3>
+                <!-- Número principal de la estadística -->
+                <div class="stat-number">$2,450,000</div>
+                <!-- Etiqueta descriptiva -->
+                <div class="stat-label">Pesos Colombianos</div>
+            </div>
+            
+            <!-- --- Tarjeta de Estadística: Productos Vendidos --- -->
+            <!-- Muestra cuántos productos se han vendido hoy -->
+            <div class="stat-card">
+                <!-- Título de la estadística -->
+                <h3>Productos Vendidos</h3>
+                <!-- Número principal de la estadística -->
+                <div class="stat-number">15</div>
+                <!-- Etiqueta descriptiva -->
+                <div class="stat-label">Unidades</div>
+            </div>
+            
+            <!-- --- Tarjeta de Estadística: Clientes Atendidos --- -->
+            <!-- Muestra cuántos clientes se han atendido hoy -->
+            <div class="stat-card">
+                <!-- Título de la estadística -->
+                <h3>Clientes Atendidos</h3>
+                <!-- Número principal de la estadística -->
+                <div class="stat-number">8</div>
+                <!-- Etiqueta descriptiva -->
+                <div class="stat-label">Hoy</div>
+            </div>
+            
+            <!-- --- Tarjeta de Estadística: Productos en Stock --- -->
+            <!-- Muestra cuántos productos están disponibles en inventario -->
+            <div class="stat-card">
+                <!-- Título de la estadística -->
+                <h3>Productos en Stock</h3>
+                <!-- Número principal de la estadística -->
+                <div class="stat-number">127</div>
+                <!-- Etiqueta descriptiva -->
+                <div class="stat-label">Disponibles</div>
+            </div>
+        </section>
+
+        <!-- --- Productos Más Vendidos --- -->
+        <!-- Esta sección muestra los productos que más se venden en la joyería -->
+        <section class="productos-destacados">
+            <!-- Título de la sección -->
+            <h2>Productos Más Vendidos</h2>
+            <!-- Lista de productos destacados -->
+            <div class="producto-lista">
+                
+                <!-- --- Producto Destacado 1 --- -->
+                <!-- Este producto tiene la clase 'producto-destacado' para resaltarlo -->
+                <div class="producto producto-destacado">
+                    <!-- Imagen del producto -->
+                    <img src="assets/anillo_esmeralda_clasico.jpg" alt="Anillo de esmeralda">
+                    <!-- Información del producto -->
+                    <div class="producto-info">
+                        <!-- Nombre del producto -->
+                        <h4 class="producto-titulo">Anillo Esmeralda Clásico</h4>
+                        <!-- Precio del producto -->
+                        <div class="producto-precio">$850,000</div>
+                        <!-- Descripción breve del producto -->
+                        <p class="producto-descripcion">Anillo elegante con esmeralda natural y oro 18k</p>
+                        <!-- Botones de acción para el producto -->
+                        <div class="producto-acciones">
+                            <!-- Botón para ver más detalles -->
+                            <a href="detallle_de_producto.html" class="btn-producto btn-ver-detalle">Ver Detalle</a>
+                            <!-- Botón para agregar al carrito -->
+                            <button class="btn-producto btn-agregar-carrito">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- --- Producto 2 --- -->
+                <div class="producto">
+                    <!-- Imagen del producto -->
+                    <img src="assets/collar_perlas.jpg" alt="collar perlas">
+                    <!-- Información del producto -->
+                    <div class="producto-info">
+                        <!-- Nombre del producto -->
+                        <h4 class="producto-titulo">Collar de Perlas Elegante</h4>
+                        <!-- Precio del producto -->
+                        <div class="producto-precio">$1,200,000</div>
+                        <!-- Descripción breve del producto -->
+                        <p class="producto-descripcion">Collar de perlas naturales con cierre de oro</p>
+                        <!-- Botones de acción para el producto -->
+                        <div class="producto-acciones">
+                            <!-- Botón para ver más detalles -->
+                            <a href="detallle_de_producto.html" class="btn-producto btn-ver-detalle">Ver Detalle</a>
+                            <!-- Botón para agregar al carrito -->
+                            <button class="btn-producto btn-agregar-carrito">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- --- Producto 3 (Con Descuento) --- -->
+                <!-- Este producto tiene la clase 'producto-descuento' para mostrar que está en oferta -->
+                <div class="producto producto-descuento">
+                    <!-- Imagen del producto -->
+                    <img src="assets/pulsera_de_oro.jpg" alt="Pulsera de Oro">
+                    <!-- Información del producto -->
+                    <div class="producto-info">
+                        <!-- Nombre del producto -->
+                        <h4 class="producto-titulo">Pulsera de Oro Minimalista</h4>
+                        <!-- Precio con descuento (precio original tachado) -->
+                        <div class="producto-precio">
+                            <!-- Precio original tachado -->
+                            <span class="producto-precio-original">$600,000</span>
+                            <!-- Precio con descuento -->
+                            $450,000
+                        </div>
+                        <!-- Descripción breve del producto -->
+                        <p class="producto-descripcion">Pulsera elegante en oro 14k con diseño minimalista</p>
+                        <!-- Botones de acción para el producto -->
+                        <div class="producto-acciones">
+                            <!-- Botón para ver más detalles -->
+                            <a href="detallle_de_producto.html" class="btn-producto btn-ver-detalle">Ver Detalle</a>
+                            <!-- Botón para agregar al carrito -->
+                            <button class="btn-producto btn-agregar-carrito">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- --- Producto 4 --- -->
+                <div class="producto">
+                    <!-- Imagen del producto -->
+                    <img src="assets/aretes_de_diamante.jpg" alt="Aretes Diamante">
+                    <!-- Información del producto -->
+                    <div class="producto-info">
+                        <!-- Nombre del producto -->
+                        <h4 class="producto-titulo">Aretes Diamante Pura Luz</h4>
+                        <!-- Precio del producto -->
+                        <div class="producto-precio">$1,500,000</div>
+                        <!-- Descripción breve del producto -->
+                        <p class="producto-descripcion">Aretes con diamantes naturales certificados</p>
+                        <!-- Botones de acción para el producto -->
+                        <div class="producto-acciones">
+                            <!-- Botón para ver más detalles -->
+                            <a href="detallle_de_producto.html" class="btn-producto btn-ver-detalle">Ver Detalle</a>
+                            <!-- Botón para agregar al carrito -->
+                            <button class="btn-producto btn-agregar-carrito">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- Acciones Rápidas --- -->
+        <!-- Esta sección contiene enlaces rápidos a funciones importantes -->
+        <section class="acciones-rapidas">
+            <!-- Título de la sección -->
+            <h2>Acciones Rápidas</h2>
+            <!-- Grid de acciones rápidas -->
+            <div class="acciones-grid">
+                
+                <!-- --- Acción: Nueva Venta --- -->
+                <!-- Esta acción solo aparece para vendedores y administradores -->
+                <a href="proceso_ventas.html" class="accion-card action-admin-vendor">
+                    <!-- Ícono de la acción -->
+                    <div class="accion-icon">💰</div>
+                    <!-- Título de la acción -->
+                    <h3>Nueva Venta</h3>
+                    <!-- Descripción de la acción -->
+                    <p>Procesar una nueva venta</p>
+                </a>
+                
+                <!-- --- Acción: Gesti�n de Productos --- -->
+                <!-- Esta acción solo aparece para vendedores y administradores -->
+                <a href="gestion_de_productos.html" class="accion-card action-admin-vendor">
+                    <!-- Ícono de la acción -->
+                    <div class="accion-icon">📦</div>
+                    <!-- Título de la acción -->
+                    <h3>Gestión de Productos</h3>
+                    <!-- Descripción de la acción -->
+                    <p>Gestionar productos del inventario</p>
+                </a>
+                
+                <!-- --- Acción: Ver Reportes --- -->
+                <!-- Esta acción solo aparece para administradores -->
+                <a href="reporte_ventas.html" class="accion-card action-admin-only">
+                    <!-- Ícono de la acción -->
+                    <div class="accion-icon">📊</div>
+                    <!-- Título de la acción -->
+                    <h3>Ver Reportes</h3>
+                    <!-- Descripción de la acción -->
+                    <p>Consultar estadísticas de ventas</p>
+                </a>
+                
+                <!-- --- Acción: Gestionar Usuarios --- -->
+                <!-- Esta acción solo aparece para administradores -->
+                <a href="administracion_de_usuarios.html" class="accion-card action-admin-only">
+                    <!-- Ícono de la acción -->
+                    <div class="accion-icon">👥</div>
+                    <!-- Título de la acción -->
+                    <h3>Gestionar Usuarios</h3>
+                    <!-- Descripción de la acción -->
+                    <p>Administrar usuarios del sistema</p>
+                </a>
+            </div>
+        </section>
+        </main>
+
+    <footer>
+        <div class="footer-column">
+            <h3>Nuestra Joyería</h3>
+            <ul>
+                <li><a href="#">Quiénes Somos</a></li>
+                <li><a href="#">Nuestras Tiendas</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Atención al Cliente</h3>
+            <ul>
+                <li><a href="#">Contacto y Soporte</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Guía de Tallas</a></li>
+                <li><a href="#">Garantías</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Productos</h3>
+            <ul>
+                <li><a href="lista_de_productos.html">Anillos</a></li>
+                <li><a href="lista_de_productos.html">Collares</a></li>
+                <li><a href="lista_de_productos.html">Pulseras</a></li>
+                <li><a href="lista_de_productos.html">Aretes</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="YouTube">📺</a>
+            </div>
+        </div>
+        <div class="footer-country">
+            <p>Ubicación: Colombia</p>
+            <a href="#">Cambiar ubicación</a>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+    <script src="js/carrito.js"></script>
+</body>
+</html>

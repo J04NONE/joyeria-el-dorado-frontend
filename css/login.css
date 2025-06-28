@@ -1,0 +1,318 @@
+body {
+    background: linear-gradient(135deg, #d4af37 0%, #8b4513 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-card {
+    width: 100%;
+}
+
+.login-logo {
+    max-width: 150px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.login-container h2 {
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+#login-form {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.login-links {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.login-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.login-links a:hover {
+    color: var(--secondary-color);
+}
+
+.btn-full-width {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Estilos para el enlace de registro */
+.register-prompt {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.register-prompt a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-prompt a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el título secundario del login/registro */
+.login-card .subtitle {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #666; /* Un color gris suave para el subtítulo */
+}
+
+/* Estilos para el layout de rejilla del formulario (dos columnas) */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Por defecto, una columna en móviles */
+    gap: 1.5rem; /* Espaciado entre columnas y filas */
+    margin-bottom: 1.5rem; /* Espacio antes del checkbox de términos */
+}
+
+@media (min-width: 768px) { /* A partir de tabletas, dos columnas */
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Estilos para el grupo de Términos y Condiciones */
+.terms-group {
+    display: flex;
+    align-items: center; /* Alinea el checkbox con el texto */
+    gap: 0.75rem; /* Espacio entre el checkbox y el texto */
+    margin: 1.5rem 0; /* Margen superior e inferior para separarlo */
+    font-size: 0.85rem; /* Tamaño de fuente ligeramente más pequeño */
+    color: #444; /* Color de texto suave */
+}
+
+.terms-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary-color); /* Estiliza el color del check (modern browsers) */
+    cursor: pointer;
+}
+
+.terms-group label {
+    flex: 1; /* Permite que la etiqueta ocupe el espacio restante */
+}
+
+.terms-group a {
+    color: var(--primary-color); /* Utiliza la variable de color principal */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.terms-group a:hover {
+    text-decoration: underline;
+}
+
+/* Reutilización del estilo para el prompt de "Ya tienes una cuenta?" (si no existe ya en login.css) */
+.login-prompt {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.login-prompt a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-prompt a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos específicos para el header en páginas de login/registro */
+.login-container {
+    margin-top: 20px; /* Espacio adicional para el header */
+}
+
+/* Asegurar que el header se vea bien en páginas de autenticación */
+.header-container {
+    position: relative;
+    z-index: 100;
+}
+
+/* Responsive para el formulario de registro */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 20px 10px;
+    }
+    
+    .form-grid {
+        gap: 1rem;
+    }
+    
+    .terms-group {
+        font-size: 0.8rem;
+    }
+}
+
+/* --- Estilos para el Header Simplificado de Autenticación (auth-header) --- */
+.auth-header {
+    padding: 1.5rem 2rem; /* Espaciado interno */
+    display: flex;
+    justify-content: center; /* Centra el logo horizontalmente */
+    align-items: center; /* Centra verticalmente si hay otros elementos */
+    border-bottom: 1px solid #f0f0f0; /* Línea separadora sutil */
+    background-color: #ffffff; /* Fondo blanco */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+}
+
+.auth-header .logo {
+    height: 45px; /* Tamaño apropiado para el logo en este contexto */
+    width: auto; /* Mantiene la proporción */
+    max-width: 100%; /* Asegura que el logo sea responsive */
+}
+
+/*
+  Esta clase se aplicará al <body> de login.html y registro_de_cliente.html.
+  Convierte toda la página en un contenedor flexbox que centra su contenido.
+*/
+.auth-body {
+    display: flex;
+    flex-direction: column;   /* Apila los elementos (header, main, back-to-home) verticalmente */
+    justify-content: center;  /* Centra el contenido verticalmente en la pantalla */
+    align-items: center;      /* Centra el contenido horizontalmente */
+    min-height: 100vh;        /* Asegura que el body ocupe al menos toda la altura visible de la pantalla */
+    background-color: #f9f9f9; /* Fondo claro para las páginas de autenticación */
+    /* Asegúrate de que no haya margin o padding no deseado en el body que interfiera */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Incluir padding y border en el ancho/alto */
+}
+
+/* Ajuste específico para el 'login-container' o 'login-card'
+   para asegurar que no tenga márgenes superiores que interfieran con el centrado global
+   cuando el body es un flex container centrado.
+*/
+.login-container {
+    margin-top: 0;
+    margin-bottom: 0; /* Asegura que el contenedor principal de la tarjeta no genere espacio extra */
+}
+
+/* --- Estilos para el enlace "Volver al inicio" --- */
+.back-to-home {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-to-home a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.back-to-home a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Estilos para Mensajes de Error y Éxito --- */
+/* Estos estilos controlan cómo se ven los mensajes de feedback al usuario */
+
+.error-message {
+    color: #e74c3c; /* Rojo para errores */
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: block; /* Asegura que ocupe su propia línea */
+    font-weight: 500;
+}
+
+.success-message {
+    color: #28a745; /* Verde para éxito */
+    font-size: 0.9rem;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: rgba(40, 167, 69, 0.1); /* Fondo verde muy suave */
+}
+
+/* --- Estilos para los Formularios del Flujo de Recuperación de Contraseña --- */
+/* Estos estilos controlan la apariencia de los formularios de restablecimiento */
+
+.reset-flow-form {
+    width: 100%;
+    max-width: 400px; /* Consistente con el login-card */
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center; /* Centrar elementos internos como título */
+    margin-top: 2rem; /* Espacio entre el header y el formulario */
+    box-sizing: border-box;
+}
+
+.reset-flow-form h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.reset-flow-form .subtitle {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+} 

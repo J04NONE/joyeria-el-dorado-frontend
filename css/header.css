@@ -1,0 +1,297 @@
+/*
+ * Archivo: header.css
+ * Propósito/Descripción General: Este archivo contiene todos los estilos para la barra de navegación
+ * superior (header) de la Joyería El Dorado. Incluye el logo, menú de navegación, formulario de
+ * búsqueda, y el ícono del carrito de compras.
+ * Contiene: Estilos del header, navegación, logo, búsqueda, carrito y diseño responsivo para móviles.
+ * Relacionado con: Todos los archivos HTML del proyecto, base.css, menu.js
+ * Última Modificación: Junio 2025 - Auditoría de comentarios
+ */
+
+/* --- Sección: Header Principal (Barra de Navegación Superior) --- */
+/* El header es la barra que aparece en la parte superior de todas las páginas de la Joyería El Dorado.
+   Contiene el logo de la tienda, los enlaces de navegación, y herramientas como búsqueda y carrito. */
+
+/* Contenedor principal del header */
+header {
+    background: linear-gradient(135deg, #d4af37 0%, #8b4513 100%); /* Fondo degradado dorado a marrón */
+    border-bottom: 2px solid var(--accent-color);                  /* Línea dorada brillante debajo */
+    display: flex;                                                  /* Usamos flexbox para organizar elementos */
+    justify-content: space-between;                                /* Espacio entre logo y navegación */
+    align-items: center;                                            /* Centramos verticalmente */
+    padding: 20px 0;                                               /* Espacio interno arriba y abajo */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);                       /* Sombra sutil para dar profundidad */
+}
+
+/* --- Sección: Logo de la Joyería --- */
+/* El logo es la imagen que identifica a la Joyería El Dorado. Aparece en la esquina superior
+   izquierda de todas las páginas. */
+
+/* Imagen del logo dentro del header */
+header .logo img {
+    max-width: 120px;              /* Ancho máximo del logo */
+    border-radius: 8px;            /* Bordes redondeados */
+    transition: transform 0.3s ease; /* Transición suave para efectos */
+}
+
+/* Efecto al pasar el mouse sobre el logo */
+header .logo img:hover {
+    transform: scale(1.05);        /* El logo se agranda ligeramente */
+}
+
+/* --- Sección: Menú de Navegación --- */
+/* El menú de navegación contiene los enlaces a las diferentes páginas de la joyería,
+   como "Inicio", "Productos", "Carrito", etc. */
+
+/* Lista de enlaces de navegación */
+nav ul {
+    list-style: none;              /* Quitamos los puntos de la lista */
+    display: flex;                 /* Los enlaces se organizan horizontalmente */
+    align-items: center;           /* Centramos verticalmente */
+    justify-content: center;       /* Centramos horizontalmente */
+    margin: 0 auto;                /* Centramos la lista en el espacio disponible */
+}
+
+/* Cada elemento individual del menú */
+nav ul li {
+    margin: 0 15px;                /* Espacio entre elementos del menú */
+    position: relative;            /* Para posicionar efectos decorativos */
+}
+
+/* Enlaces del menú de navegación */
+nav ul li a {
+    color: #ffffff;                /* Texto blanco para contraste */
+    text-decoration: none;         /* Sin subrayado */
+    font-weight: bold;             /* Texto en negrita */
+    text-transform: uppercase;     /* Texto en mayúsculas */
+    padding: 8px 12px;             /* Espacio interno del enlace */
+    transition: all 0.3s ease;     /* Transición suave para todos los cambios */
+    display: flex;                 /* Para alinear íconos y texto */
+    align-items: center;           /* Centramos verticalmente */
+    border-radius: 4px;            /* Bordes redondeados */
+}
+
+/* Íconos que aparecen junto al texto de los enlaces */
+nav ul li a i {
+    margin-right: 8px;             /* Espacio entre el ícono y el texto */
+    font-size: 1em;                /* Tamaño del ícono */
+}
+
+/* Efecto al pasar el mouse sobre los enlaces */
+nav ul li a:hover {
+    color: var(--accent-color);    /* Cambia a dorado brillante */
+    background-color: rgba(255,255,255,0.1); /* Fondo blanco semi-transparente */
+}
+
+/* Línea decorativa que aparece debajo de cada elemento del menú */
+nav ul li::after {
+    content: "";                   /* Contenido vacío para crear la línea */
+    position: absolute;            /* Posición absoluta para colocarla donde queramos */
+    bottom: -5px;                  /* 5 píxeles debajo del elemento */
+    left: 0;                       /* Empieza desde la izquierda */
+    width: 0;                      /* Inicialmente no tiene ancho */
+    height: 2px;                   /* Altura de la línea */
+    background-color: var(--accent-color); /* Color dorado brillante */
+    transition: width 0.3s ease;   /* Transición suave para el ancho */
+}
+
+/* Efecto: la línea se expande al pasar el mouse */
+nav ul li:hover::after {
+    width: 100%;                   /* La línea ocupa todo el ancho del elemento */
+}
+
+/* --- Sección: Menú Móvil --- */
+/* En pantallas pequeñas (móviles), el menú se convierte en un botón hamburguesa
+   que se despliega verticalmente. */
+
+/* Botón hamburguesa para móviles */
+.mobile-menu-toggle {
+    display: none;                 /* Oculto por defecto en pantallas grandes */
+    background: none;              /* Sin fondo */
+    border: none;                  /* Sin borde */
+    color: white;                  /* Color blanco */
+    font-size: 24px;               /* Tamaño grande para el ícono */
+    cursor: pointer;               /* Cursor de mano */
+    padding: 5px;                  /* Espacio interno */
+    border-radius: 4px;            /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/* Efecto al pasar el mouse sobre el botón hamburguesa */
+.mobile-menu-toggle:hover {
+    background-color: rgba(255,255,255,0.1); /* Fondo blanco semi-transparente */
+}
+
+/* --- Sección: Formulario de Búsqueda --- */
+/* El formulario de búsqueda permite a los usuarios encontrar productos específicos
+   en la joyería. */
+
+/* Contenedor del formulario de búsqueda */
+.search-form {
+    display: flex;                 /* Usamos flexbox para alinear elementos */
+    align-items: center;           /* Centramos verticalmente */
+    margin-left: 20px;             /* Espacio a la izquierda */
+}
+
+/* Campo de texto para la búsqueda */
+.search-input {
+    padding: 8px 12px;             /* Espacio interno */
+    border: none;                  /* Sin borde */
+    border-radius: 20px;           /* Bordes muy redondeados (forma de píldora) */
+    background-color: rgba(255,255,255,0.9); /* Fondo blanco semi-transparente */
+    color: var(--text-dark);       /* Color del texto */
+    font-size: 14px;               /* Tamaño de fuente */
+    width: 200px;                  /* Ancho inicial */
+    transition: all 0.3s ease;     /* Transición suave para todos los cambios */
+}
+
+/* Efecto cuando el campo de búsqueda está seleccionado */
+.search-input:focus {
+    outline: none;                 /* Quitamos el contorno por defecto */
+    background-color: white;       /* Fondo completamente blanco */
+    box-shadow: 0 0 10px rgba(255,215,0,0.3); /* Sombra dorada */
+    width: 250px;                  /* Se hace más ancho */
+}
+
+/* Botón de búsqueda */
+.search-button {
+    background: none;              /* Sin fondo */
+    border: none;                  /* Sin borde */
+    color: white;                  /* Color blanco */
+    margin-left: 10px;             /* Espacio a la izquierda */
+    cursor: pointer;               /* Cursor de mano */
+    padding: 8px;                  /* Espacio interno */
+    border-radius: 50%;            /* Forma circular */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/* Efecto al pasar el mouse sobre el botón de búsqueda */
+.search-button:hover {
+    background-color: rgba(255,255,255,0.1); /* Fondo blanco semi-transparente */
+}
+
+/* --- Sección: Diseño Responsivo (Móviles y Tablets) --- */
+/* Estilos para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    /* El menú se convierte en columna vertical */
+    nav ul {
+        flex-direction: column;    /* Elementos uno debajo del otro */
+        display: none;             /* Oculto por defecto */
+        position: absolute;        /* Posición absoluta para aparecer sobre el contenido */
+        top: 100%;                 /* Justo debajo del header */
+        left: 0;                   /* Desde el borde izquierdo */
+        right: 0;                  /* Hasta el borde derecho */
+        background: linear-gradient(135deg, #d4af37 0%, #8b4513 100%); /* Mismo fondo que el header */
+        padding: 20px;             /* Espacio interno */
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra para separarlo */
+    }
+
+    /* Mostrar el menú cuando está activo */
+    nav.active ul {
+        display: flex;             /* Mostramos la lista cuando está activa */
+    }
+
+    /* Cada elemento del menú en móviles */
+    nav ul li {
+        margin: 10px 0;            /* Espacio arriba y abajo */
+        width: 100%;               /* Ocupa todo el ancho */
+        text-align: center;        /* Texto centrado */
+    }
+
+    /* El header se reorganiza en columna */
+    header {
+        flex-direction: column;    /* Elementos uno debajo del otro */
+        align-items: flex-start;   /* Alineados a la izquierda */
+        padding: 15px 20px;        /* Espacio interno */
+    }
+
+    /* Mostrar el botón hamburguesa */
+    .mobile-menu-toggle {
+        display: block;            /* Lo mostramos en móviles */
+        position: absolute;        /* Posición absoluta */
+        top: 20px;                 /* Distancia desde arriba */
+        right: 20px;               /* Distancia desde la derecha */
+    }
+
+    /* Reorganizar el formulario de búsqueda */
+    .search-form {
+        margin: 15px 0 0 0;        /* Espacio arriba */
+        width: 100%;               /* Ocupa todo el ancho */
+    }
+
+    /* El campo de búsqueda se adapta */
+    .search-input {
+        width: 100%;               /* Ocupa todo el ancho disponible */
+        max-width: 300px;          /* Pero no más de 300px */
+    }
+}
+
+/* Estilos para pantallas muy pequeñas (móviles pequeños) */
+@media (max-width: 480px) {
+    /* Logo más pequeño en móviles pequeños */
+    header .logo img {
+        max-width: 100px;          /* Logo más pequeño */
+    }
+
+    /* Campo de búsqueda más compacto */
+    .search-input {
+        font-size: 12px;           /* Texto más pequeño */
+        padding: 6px 10px;         /* Espacio interno más pequeño */
+    }
+}
+
+/* --- Sección: Ícono del Carrito de Compras --- */
+/* El ícono del carrito muestra cuántos productos tiene el cliente en su carrito
+   y permite acceder rápidamente a la página del carrito. */
+
+/* Contenedor del ícono del carrito */
+.cart-icon-wrapper {
+    position: relative;            /* Para posicionar el contador */
+    margin-right: 1.5rem;          /* Espacio a la derecha */
+    display: flex;                 /* Para alinear elementos */
+    align-items: center;           /* Centramos verticalmente */
+}
+
+/* Enlace del carrito */
+.cart-icon-wrapper a {
+    color: white;                  /* Color blanco */
+    text-decoration: none;         /* Sin subrayado */
+    display: flex;                 /* Para alinear ícono y contador */
+    align-items: center;           /* Centramos verticalmente */
+}
+
+/* Ícono del carrito */
+.cart-icon {
+    font-size: 1.5rem;             /* Tamaño del ícono */
+    transition: transform 0.3s ease; /* Transición suave */
+    margin-right: 5px;             /* Espacio a la derecha */
+}
+
+/* Efecto al pasar el mouse sobre el ícono del carrito */
+.cart-icon:hover {
+    transform: scale(1.1);         /* Se agranda ligeramente */
+}
+
+/* Contador de productos en el carrito */
+.cart-count {
+    background-color: var(--danger-color); /* Fondo rojo para llamar la atención */
+    color: white;                  /* Texto blanco */
+    border-radius: 50%;            /* Forma circular */
+    width: 20px;                   /* Ancho fijo */
+    height: 20px;                  /* Alto fijo */
+    display: flex;                 /* Para centrar el número */
+    align-items: center;           /* Centramos verticalmente */
+    justify-content: center;       /* Centramos horizontalmente */
+    font-size: 12px;               /* Tamaño pequeño del número */
+    font-weight: bold;             /* Número en negrita */
+    position: absolute;            /* Posición absoluta */
+    top: -8px;                     /* Arriba del ícono */
+    right: -8px;                   /* A la derecha del ícono */
+    opacity: 0;                    /* Invisible por defecto */
+    transition: opacity 0.3s ease; /* Transición suave para aparecer/desaparecer */
+}
+
+/* Mostrar el contador cuando hay productos en el carrito */
+.cart-count.visible {
+    opacity: 1;                    /* Lo hacemos visible */
+}

@@ -1,0 +1,193 @@
+/*
+ * Archivo: footer.css
+ * Propósito/Descripción General: Este archivo contiene todos los estilos para el pie de página
+ * (footer) de la Joyería El Dorado. El footer aparece en la parte inferior de todas las páginas
+ * y contiene información de contacto, enlaces útiles y redes sociales.
+ * Contiene: Estilos del footer principal, columnas de información, enlaces, redes sociales
+ * y diseño responsivo para móviles.
+ * Relacionado con: Todos los archivos HTML del proyecto, base.css, main.css
+ * Última Modificación: Junio 2025 - Auditoría de comentarios
+ */
+
+/* --- Sección: Footer Principal (Pie de Página) --- */
+/* El footer es la sección que aparece en la parte inferior de todas las páginas de la joyería.
+   Contiene información importante como contacto, enlaces útiles, y redes sociales. */
+
+/* Contenedor principal del footer */
+footer {
+    background: linear-gradient(135deg, #8b4513 0%, #d4af37 100%); /* Fondo degradado marrón a dorado */
+    color: #fff;                                                   /* Texto blanco para contraste */
+    padding: 40px 20px;                                           /* Espacio interno del footer */
+    display: flex;                                                /* Usamos flexbox para organizar las columnas */
+    justify-content: space-between;                               /* Espacio entre las columnas */
+    flex-wrap: wrap;                                              /* Las columnas se envuelven en pantallas pequeñas */
+    margin-top: 50px;                                             /* Espacio arriba del footer */
+}
+
+/* --- Sección: Columnas del Footer --- */
+/* El footer se divide en columnas para organizar mejor la información */
+
+/* Cada columna individual del footer */
+.footer-column {
+    width: 25%;                   /* Cada columna ocupa un cuarto del ancho */
+    padding: 0 15px;              /* Espacio interno de cada columna */
+}
+
+/* Títulos de cada columna (ej: "Contacto", "Productos", "Soporte") */
+.footer-column h3 {
+    color: var(--accent-color);   /* Color dorado brillante para los títulos */
+    font-size: 16px;              /* Tamaño de fuente para los títulos */
+    margin-bottom: 15px;          /* Espacio debajo del título */
+    text-transform: uppercase;    /* Texto en mayúsculas */
+    font-weight: bold;            /* Texto en negrita */
+    border-bottom: 2px solid var(--accent-color); /* Línea dorada debajo del título */
+    padding-bottom: 5px;          /* Espacio entre el título y la línea */
+}
+
+/* --- Sección: Listas de Enlaces --- */
+/* Cada columna contiene una lista de enlaces útiles */
+
+/* Lista de enlaces dentro de cada columna */
+.footer-column ul {
+    list-style: none;             /* Quitamos los puntos de la lista */
+    padding: 0;                   /* Sin espacio interno */
+}
+
+/* Cada elemento individual de la lista */
+.footer-column ul li {
+    margin-bottom: 10px;          /* Espacio entre elementos de la lista */
+}
+
+/* Enlaces dentro de los elementos de la lista */
+.footer-column ul li a {
+    color: #f0f0f0;               /* Color gris claro para los enlaces */
+    text-decoration: none;        /* Sin subrayado */
+    font-size: 14px;              /* Tamaño de fuente */
+    transition: all 0.3s ease;    /* Transición suave para todos los cambios */
+    padding: 2px 0;               /* Espacio interno arriba y abajo */
+    display: inline-block;        /* Para que funcione la transición */
+}
+
+/* Efecto al pasar el mouse sobre los enlaces */
+.footer-column ul li a:hover {
+    color: var(--accent-color);   /* Cambia a dorado brillante */
+    transform: translateX(5px);   /* Se mueve ligeramente hacia la derecha */
+}
+
+/* --- Sección: Selector de País --- */
+/* Esta sección permite a los usuarios cambiar el país/idioma del sitio */
+
+/* Contenedor del selector de país */
+.footer-country {
+    width: 100%;                  /* Ocupa todo el ancho */
+    text-align: center;           /* Texto centrado */
+    margin-top: 20px;             /* Espacio arriba */
+    padding-top: 20px;            /* Espacio interno arriba */
+    border-top: 1px solid rgba(255,255,255,0.2); /* Línea blanca semi-transparente arriba */
+}
+
+/* Texto descriptivo del selector de país */
+.footer-country p {
+    font-size: 14px;              /* Tamaño de fuente */
+    display: inline;              /* Se comporta como texto en línea */
+    margin-right: 5px;            /* Espacio a la derecha */
+    color: #f0f0f0;               /* Color gris claro */
+}
+
+/* Enlace para cambiar de país */
+.footer-country a {
+    color: var(--accent-color);   /* Color dorado brillante */
+    text-decoration: none;        /* Sin subrayado */
+    font-size: 14px;              /* Tamaño de fuente */
+    font-weight: bold;            /* Texto en negrita */
+    transition: all 0.3s ease;    /* Transición suave */
+}
+
+/* Efecto al pasar el mouse sobre el enlace de país */
+.footer-country a:hover {
+    color: white;                 /* Cambia a blanco */
+    text-decoration: underline;   /* Aparece subrayado */
+}
+
+/* --- Sección: Íconos de Redes Sociales --- */
+/* Esta sección contiene los íconos de redes sociales como Facebook, Instagram, etc. */
+
+/* Contenedor de los íconos de redes sociales */
+.social-icons {
+    display: flex;                /* Los íconos se organizan horizontalmente */
+    gap: 15px;                    /* Espacio entre íconos */
+    margin-top: 10px;             /* Espacio arriba */
+}
+
+/* Cada ícono individual de red social */
+.social-icons a {
+    display: inline-block;        /* Se comporta como un bloque en línea */
+    width: 35px;                  /* Ancho fijo del ícono */
+    height: 35px;                 /* Alto fijo del ícono */
+    background-color: rgba(255,255,255,0.1); /* Fondo blanco semi-transparente */
+    border-radius: 50%;           /* Forma circular */
+    text-align: center;           /* Ícono centrado */
+    line-height: 35px;            /* Centra verticalmente el ícono */
+    color: white;                 /* Color blanco para el ícono */
+    transition: all 0.3s ease;    /* Transición suave */
+}
+
+/* Efecto al pasar el mouse sobre los íconos de redes sociales */
+.social-icons a:hover {
+    background-color: var(--accent-color); /* Fondo dorado brillante */
+    transform: translateY(-3px);  /* Se eleva ligeramente */
+}
+
+/* --- Sección: Diseño Responsivo (Móviles y Tablets) --- */
+/* Estos estilos se aplican cuando la pantalla es más pequeña para que el footer
+   se vea bien en teléfonos móviles y tablets. */
+
+/* Estilos para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    /* Las columnas ocupan todo el ancho en móviles */
+    .footer-column {
+        width: 100%;              /* Ocupa todo el ancho */
+        margin-bottom: 20px;      /* Espacio entre columnas */
+        text-align: center;       /* Texto centrado */
+    }
+    
+    /* Ajuste del selector de país */
+    .footer-country {
+        margin-top: 10px;         /* Menos espacio arriba */
+    }
+    
+    /* Menos espacio interno del footer */
+    footer {
+        padding: 30px 15px;       /* Espacio interno más pequeño */
+    }
+}
+
+/* Estilos para pantallas muy pequeñas (móviles pequeños) */
+@media (max-width: 480px) {
+    /* Títulos más pequeños en móviles pequeños */
+    .footer-column h3 {
+        font-size: 14px;          /* Tamaño de fuente más pequeño */
+    }
+    
+    /* Enlaces más pequeños en móviles pequeños */
+    .footer-column ul li a {
+        font-size: 12px;          /* Tamaño de fuente más pequeño */
+    }
+    
+    /* Íconos de redes sociales centrados */
+    .social-icons {
+        justify-content: center;  /* Centra los íconos horizontalmente */
+    }
+}
+
+/* --- Sección: Ícono de Bandera --- */
+/* Este estilo se aplica al ícono de bandera que aparece junto al selector de país */
+
+/* Ícono de bandera del país */
+.footer-country .flag-icon {
+    display: inline-block;        /* Se comporta como un bloque en línea */
+    margin-right: 8px;            /* Espacio a la derecha */
+    width: 24px;                  /* Ancho de la bandera */
+    height: 18px;                 /* Alto de la bandera */
+    background-size: cover;       /* La imagen cubre todo el espacio */
+}

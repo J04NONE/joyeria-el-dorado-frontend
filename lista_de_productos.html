@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Joyas - Joyería El Dorado</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/catalogo.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="dashboard.html">
+                <img src="assets/logo.jpg" alt="Joyería El Dorado Logo">
+            </a>
+        </div>
+        
+        <button class="mobile-menu-toggle" aria-label="Abrir menú de navegación">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav role="navigation" aria-label="Navegación principal">
+            <ul>
+                <li><a href="dashboard.html">Inicio</a></li>
+                <li><a href="lista_de_productos.html" aria-current="page">Catálogo</a></li>
+                <li class="nav-cliente-only"><a href="historial_ordenes.html">Mis Pedidos</a></li>
+                <li class="nav-admin-only"><a href="administracion_de_usuarios.html">Gestión de Usuarios</a></li>
+                <li class="nav-admin-vendor-only"><a href="gestion_de_productos.html">Gesti�n de Productos</a></li>
+                <li class="nav-admin-vendor-only"><a href="proceso_ventas.html">Procesar Venta</a></li>
+                <li class="nav-admin-only"><a href="reporte_ventas.html">Reportes</a></li>
+                <li class="nav-login-link"><a href="login.html">Iniciar Sesión</a></li>
+                <li class="nav-logout-link"><a href="#">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+        
+        <div class="cart-icon-wrapper nav-cliente-only">
+            <a href="carrito.html" aria-label="Ver carrito de compras">
+                <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.24 17 6.5 17H20v-2H6.5c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.9 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+        
+        <div class="user-controls">
+            <form class="search-form" role="search">
+                <input type="search" placeholder="Buscar artículo" class="search-input" aria-label="Buscar productos">
+                <button type="submit" class="search-button" aria-label="Buscar">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- Header del Catálogo -->
+        <section class="catalog-header">
+            <h1>Nuestro Catálogo de Joyas</h1>
+            <p>Descubre piezas únicas diseñadas para brillar en cada momento especial</p>
+        </section>
+
+        <!-- Filtros de Productos -->
+        <section class="filtros-productos">
+            <h3>Filtrar Productos</h3>
+            <div class="filtros-grupo">
+                <div class="filtro-item">
+                    <label for="category-filter">Categoría</label>
+                    <select id="category-filter" class="form-input">
+                        <option value="all">Todas las Categorías</option>
+                        <option value="anillos">Anillos</option>
+                        <option value="collares">Collares</option>
+                        <option value="pulseras">Pulseras</option>
+                        <option value="aretes">Aretes</option>
+                        <option value="relojes">Relojes</option>
+                    </select>
+                </div>
+                
+                <div class="filtro-item">
+                    <label for="material-filter">Material</label>
+                    <select id="material-filter" class="form-input">
+                        <option value="all">Todos los Materiales</option>
+                        <option value="oro">Oro</option>
+                        <option value="plata">Plata</option>
+                        <option value="platino">Platino</option>
+                        <option value="diamante">Diamante</option>
+                        <option value="esmeralda">Esmeralda</option>
+                    </select>
+                </div>
+                
+                <div class="filtro-item">
+                    <label for="price-filter">Rango de Precio</label>
+                    <select id="price-filter" class="form-input">
+                        <option value="all">Cualquier Precio</option>
+                        <option value="low">$0 - $500,000</option>
+                        <option value="medium">$500,000 - $2,000,000</option>
+                        <option value="high">$2,000,000+</option>
+                    </select>
+                </div>
+                
+                <div class="filtro-item">
+                    <label for="sort-filter">Ordenar por</label>
+                    <select id="sort-filter" class="form-input">
+                        <option value="popular">Más Populares</option>
+                        <option value="price-low">Precio: Menor a Mayor</option>
+                        <option value="price-high">Precio: Mayor a Menor</option>
+                        <option value="newest">Más Recientes</option>
+                    </select>
+                </div>
+                
+                <div class="filtro-item">
+                    <button type="button" class="btn btn-primary" id="apply-filters-btn">Aplicar Filtros</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid de Productos -->
+        <section class="producto-grid">
+            <!-- Producto 1 -->
+            <div class="producto producto-destacado">
+                <img src="assets/anillo_diamante.jpg" alt="Anillo Solitario de Diamante">
+                <div class="producto-info">
+                    <h4 class="producto-titulo">Anillo Solitario de Diamante</h4>
+                    <div class="producto-precio">$1,800,000</div>
+                    <p class="producto-descripcion">Anillo elegante con diamante natural certificado y oro blanco 18k</p>
+                    <div class="producto-acciones">
+                        <a href="detallle_de_producto.html" class="btn-producto btn-ver-detalle">Ver Detalle</a>
+                        <button class="btn-producto btn-agregar-carrito">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="producto">
+                <img src="assets/collar_esmeralda.jpg" alt="Collar de Esmeralda">
+                <div class="producto-info">
+                    <h4 class="producto-titulo">Collar de Esmeralda</h4>
+                    <div class="producto-precio">$2,500,000</div>
+                    <p class="producto-descripcion">Collar con esmeralda colombiana y oro amarillo 18k</p>
+                    <div class="producto-acciones">
+                        <a href="detallle_de_producto.html" class="btn-producto btn-ver-detalle">Ver Detalle</a>
+                        <button class="btn-producto btn-agregar-carrito">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="producto producto-descuento">
+                <img src="assets/pulsera_de_zafiros.jpg" alt="Pulsera de Zafiros">
+                <div class="producto-info">
+                    <h4 class="producto-titulo">Pulsera de Zafiros</h4>
+                    <div class="producto-precio">
+                        <span class="producto-precio-original">$1,500,000</span>
+                        $1,200,000
+                    </div>
+                    <p class="producto-descripcion">Pulsera con zafiros azules y plata esterlina</p>
+                    <div class="producto-acciones">
+                        <a href="detallle_de_producto.html" class="btn-producto btn-ver-detalle">Ver Detalle</a>
+                        <button class="btn-producto btn-agregar-carrito">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="producto">
+                <img src="assets/aretes_de_perlas.jpg" alt="Aretes de Perlas">
+                <div class="producto-info">
+                    <h4 class="producto-titulo">Aretes de Perlas</h4>
+                    <div class="producto-precio">$750,000</div>
+                    <p class="producto-descripcion">Aretes con perlas naturales y oro blanco 14k</p>
+                    <div class="producto-acciones">
+                        <a href="detallle_de_producto.html" class="btn-producto btn-ver-detalle">Ver Detalle</a>
+                        <button class="btn-producto btn-agregar-carrito">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="producto">
+                <img src="assets/anillo_de_compromiso.jpg" alt="Anillo de Compromiso">
+                <div class="producto-info">
+                    <h4 class="producto-titulo">Anillo de Compromiso</h4>
+                    <div class="producto-precio">$3,100,000</div>
+                    <p class="producto-descripcion">Anillo de compromiso con diamante central y baguettes</p>
+                    <div class="producto-acciones">
+                        <a href="detallle_de_producto.html" class="btn-producto btn-ver-detalle">Ver Detalle</a>
+                        <button class="btn-producto btn-agregar-carrito">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="producto">
+                <img src="assets/gargantilla_de_plata.jpg" alt="Gargantilla de Plata">
+                <div class="producto-info">
+                    <h4 class="producto-titulo">Gargantilla de Plata</h4>
+                    <div class="producto-precio">$450,000</div>
+                    <p class="producto-descripcion">Gargantilla elegante en plata 925 con diseño minimalista</p>
+                    <div class="producto-acciones">
+                        <a href="detallle_de_producto.html" class="btn-producto btn-ver-detalle">Ver Detalle</a>
+                        <button class="btn-producto btn-agregar-carrito">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 7 -->
+            <div class="producto">
+                <img src="assets/reloj_de_lujo.jpg" alt="Reloj de Lujo">
+                <div class="producto-info">
+                    <h4 class="producto-titulo">Reloj de Lujo</h4>
+                    <div class="producto-precio">$4,200,000</div>
+                    <p class="producto-descripcion">Reloj automático con caja de oro y correa de cuero</p>
+                    <div class="producto-acciones">
+                        <a href="detallle_de_producto.html" class="btn-producto btn-ver-detalle">Ver Detalle</a>
+                        <button class="btn-producto btn-agregar-carrito">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 8 -->
+            <div class="producto">
+                <img src="assets/set_de_joyas_completo.jpg" alt="Set de Joyas">
+                <div class="producto-info">
+                    <h4 class="producto-titulo">Set de Joyas Completo</h4>
+                    <div class="producto-precio">$2,800,000</div>
+                    <p class="producto-descripcion">Set completo con anillo, collar y aretes de oro rosa</p>
+                    <div class="producto-acciones">
+                        <a href="detallle_de_producto.html" class="btn-producto btn-ver-detalle">Ver Detalle</a>
+                        <button class="btn-producto btn-agregar-carrito">Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Paginación -->
+        <nav class="paginacion">
+            <button class="btn btn-secondary">&laquo; Anterior</button>
+            <span class="numero-pagina">Página 1 de 5</span>
+            <button class="btn btn-secondary">Siguiente &raquo;</button>
+        </nav>
+    </main>
+
+    <footer>
+        <div class="footer-column">
+            <h3>Nuestra Joyería</h3>
+            <ul>
+                <li><a href="#">Quiénes Somos</a></li>
+                <li><a href="#">Nuestras Tiendas</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Atención al Cliente</h3>
+            <ul>
+                <li><a href="#">Contacto y Soporte</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Guía de Tallas</a></li>
+                <li><a href="#">Garantías</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Productos</h3>
+            <ul>
+                <li><a href="lista_de_productos.html">Anillos</a></li>
+                <li><a href="lista_de_productos.html">Collares</a></li>
+                <li><a href="lista_de_productos.html">Pulseras</a></li>
+                <li><a href="lista_de_productos.html">Aretes</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="YouTube">📺</a>
+            </div>
+        </div>
+        <div class="footer-country">
+            <p>Ubicación: Colombia</p>
+            <a href="#">Cambiar ubicación</a>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/catalogo.js"></script>
+</body>
+</html>

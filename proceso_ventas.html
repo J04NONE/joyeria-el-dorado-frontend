@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceso de Venta - Joyería El Dorado</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/ventas.css">
+</head>
+<body class="role-vendor">
+    <header>
+        <div class="logo">
+            <a href="dashboard.html">
+                <img src="assets/logo.jpg" alt="Joyería El Dorado Logo">
+            </a>
+        </div>
+        
+        <button class="mobile-menu-toggle" aria-label="Abrir menú de navegación">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav role="navigation" aria-label="Navegación principal">
+            <ul>
+                <li><a href="dashboard.html">Inicio</a></li>
+                <li><a href="lista_de_productos.html">Catálogo</a></li>
+                <li class="nav-cliente-only"><a href="historial_ordenes.html">Mis Pedidos</a></li>
+                <li class="nav-admin-only"><a href="administracion_de_usuarios.html">Gestión de Usuarios</a></li>
+                <li class="nav-admin-vendor-only"><a href="gestion_de_productos.html">Gesti�n de Productos</a></li>
+                <li class="nav-admin-vendor-only"><a href="proceso_ventas.html" aria-current="page">Procesar Venta</a></li>
+                <li class="nav-admin-only"><a href="reporte_ventas.html">Reportes</a></li>
+                <li class="nav-login-link"><a href="login.html">Iniciar Sesión</a></li>
+                <li class="nav-logout-link"><a href="#">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+        
+        <div class="user-controls">
+            <form class="search-form" role="search">
+                <input type="search" placeholder="Buscar artículo" class="search-input" aria-label="Buscar productos">
+                <button type="submit" class="search-button" aria-label="Buscar">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="page-header">
+            <h1>Proceso de Venta</h1>
+        </div>
+
+        <div class="sales-process-grid">
+            <aside class="search-panel card-style">
+                <div class="search-section">
+                    <h3>Buscar Cliente</h3>
+                    <input type="search" id="customer-search" class="form-input" placeholder="Nombre o ID del cliente...">
+                    <div id="customer-search-results" class="search-results">
+                        <p>Cliente: Ana García</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="search-section">
+                    <h3>Buscar Producto</h3>
+                    <input type="search" id="product-search" class="form-input" placeholder="Nombre o referencia del producto...">
+                    <div id="product-search-results" class="search-results">
+                        <div class="producto__card--small">
+                            <img src="assets/anillo_diamante.jpg" alt="Anillo">
+                            <div class="info">
+                                <h4>Anillo Solitario</h4>
+                                <p>$1,800.00</p>
+                            </div>
+                            <button class="btn btn-sm btn-primary">+</button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="current-sale-panel card-style">
+                <h2>Venta Actual</h2>
+                <div class="sale-items-container">
+                    <table class="sale-items-table">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio Unit.</th>
+                                <th>Subtotal</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Anillo Solitario de Diamante</td>
+                                <td><input type="number" class="form-input-sm" value="1" min="1"></td>
+                                <td>$1,800.00</td>
+                                <td>$1,800.00</td>
+                                <td><button class="btn-icon-danger">🗑️</button></td>
+                            </tr>
+                            <tr>
+                                <td>Collar de Esmeralda</td>
+                                <td><input type="number" class="form-input-sm" value="1" min="1"></td>
+                                <td>$2,500.00</td>
+                                <td>$2,500.00</td>
+                                <td><button class="btn-icon-danger">🗑️</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <aside class="summary-panel card-style">
+                <h2>Resumen</h2>
+                <div class="summary-line">
+                    <span>Subtotal:</span>
+                    <span id="summary-subtotal">$4,300.00</span>
+                </div>
+                <div class="summary-line">
+                    <span>IVA (19%):</span>
+                    <span id="summary-tax">$817.00</span>
+                </div>
+                <hr>
+                <div class="summary-total">
+                    <span>Total:</span>
+                    <span id="summary-total">$5,117.00</span>
+                </div>
+                <div class="payment-methods">
+                    <h3>Método de Pago</h3>
+                    <select id="payment-method" class="form-input">
+                        <option>Efectivo</option>
+                        <option>Tarjeta de Crédito</option>
+                        <option>Transferencia</option>
+                    </select>
+                </div>
+                <button id="complete-sale-btn" class="btn btn-primary btn-full-width">Completar Venta</button>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-column">
+            <h3>Nuestra Joyería</h3>
+            <ul>
+                <li><a href="#">Quiénes Somos</a></li>
+                <li><a href="#">Nuestras Tiendas</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Atención al Cliente</h3>
+            <ul>
+                <li><a href="#">Contacto y Soporte</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Guía de Tallas</a></li>
+                <li><a href="#">Garantías</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Productos</h3>
+            <ul>
+                <li><a href="lista_de_productos.html">Anillos</a></li>
+                <li><a href="lista_de_productos.html">Collares</a></li>
+                <li><a href="lista_de_productos.html">Pulseras</a></li>
+                <li><a href="lista_de_productos.html">Aretes</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="YouTube">📺</a>
+            </div>
+        </div>
+        <div class="footer-country">
+            <p>Ubicación: Colombia</p>
+            <a href="#">Cambiar ubicación</a>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+/*
+ * Archivo: administracion_de_usuarios.css
+ * Propósito/Descripción General: Este archivo contiene estilos específicos para las páginas de administración
+ * de usuarios de la Joyería El Dorado, incluyendo la tabla de usuarios y el formulario de actualización.
+ * Contiene: Estilos para tablas, formularios de búsqueda, campos de edición, botones de acción
+ * Relacionado con: administracion_de_usuarios.html, actualizar_datos_usuario.html
+ * Última Modificación: Diciembre 2024 - Implementación de Fase 3
+ */
+
+/* --- Estilos para el Contenedor Principal del Formulario de Actualización --- */
+/* Estos estilos controlan la apariencia del formulario de actualización de datos */
+
+.form-update-user {
+    max-width: 600px; /* Ancho máximo para el formulario */
+    margin: 2rem auto; /* Centrar y dar espacio */
+    padding: 2.5rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.form-update-user .page-header h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    font-size: 2rem;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+/* --- Estilos para los Campos de Búsqueda con Icono --- */
+/* Estos estilos controlan la apariencia de los campos de búsqueda */
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form-input.with-icon {
+    padding-right: 2.5rem; /* Espacio para el icono */
+    width: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 1rem;
+    cursor: pointer; /* Solo si el icono es clickable para buscar */
+    pointer-events: auto; /* Permite clicks si se usa para buscar */
+    transition: color 0.3s ease;
+}
+
+.input-icon:hover {
+    color: var(--primary-color);
+}
+
+.search-icon {
+    cursor: pointer; /* Solo si el icono es clickable para buscar */
+    pointer-events: auto; /* Permite clicks si se usa para buscar */
+}
+
+/* --- Estilos para la Línea Separadora --- */
+/* Línea que separa la sección de búsqueda de la sección de edición */
+
+.form-update-user hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 2rem 0;
+}
+
+/* --- Estilos para los Botones de Acción --- */
+/* Estos estilos controlan la apariencia de los botones de guardar y cancelar */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    gap: 1rem; /* Espacio entre botones */
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.form-actions .btn {
+    min-width: 120px; /* Ancho mínimo para los botones */
+    padding: 12px 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.form-actions .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* --- Estilos para Mensajes de Error --- */
+/* Estos estilos controlan la apariencia de los mensajes de error */
+
+.error-message {
+    color: #e74c3c; /* Rojo para errores */
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: block; /* Asegura que ocupe su propia línea */
+    font-weight: 500;
+}
+
+/* --- Estilos para Campos Deshabilitados --- */
+/* Estos estilos controlan la apariencia de los campos cuando están deshabilitados */
+
+.form-input:disabled {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    cursor: not-allowed;
+    border-color: #dee2e6;
+}
+
+.form-input:disabled:focus {
+    border-color: #dee2e6;
+    box-shadow: none;
+}
+
+/* --- Estilos para el Breadcrumb --- */
+/* Navegación de breadcrumb en la parte superior */
+
+.breadcrumb {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.breadcrumb span[aria-current="page"] {
+    color: #666;
+    font-weight: 500;
+}
+
+/* --- Estilos Responsivos --- */
+/* Estos estilos se aplican en pantallas pequeñas para mejorar la experiencia móvil */
+
+@media (max-width: 768px) {
+    .form-update-user {
+        padding: 1.5rem;
+        margin: 1rem;
+        max-width: none;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .form-actions .btn {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .input-with-icon {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .input-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .form-update-user {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    
+    .form-update-user .page-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .breadcrumb {
+        font-size: 0.8rem;
+    }
+}
+
+/* --- Estilos para la Tabla de Usuarios (si se necesitan) --- */
+/* Estos estilos controlan la apariencia de la tabla en la página de administración */
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.data-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.data-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.actions-cell {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.btn-icon-edit,
+.btn-icon-danger {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-icon-edit:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+.btn-icon-danger:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+/* --- Estilos para Badges de Rol --- */
+/* Estos estilos controlan la apariencia de los badges que muestran el rol del usuario */
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.admin-badge {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.vendor-badge {
+    background-color: #f39c12;
+    color: white;
+}
+
+.client-badge {
+    background-color: #27ae60;
+    color: white;
+}
+
+/* --- Estilos para Estados de Usuario --- */
+/* Estos estilos controlan la apariencia de los indicadores de estado */
+
+.status-active {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.status-inactive {
+    color: #e74c3c;
+    font-weight: bold;
+} 

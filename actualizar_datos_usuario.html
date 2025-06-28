@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- 
+     * Archivo: actualizar_datos_usuario.html
+     * Propósito/Descripción General: Esta es la página para actualizar datos de usuarios en la Joyería El Dorado.      
+     * Permite a los administradores buscar y editar información de clientes, vendedores y otros usuarios.
+     * Contiene: Formulario de búsqueda, campos de edición, validación de datos
+     * Relacionado con: administracion_de_usuarios.html, actualizar_datos_usuario.js, administracion_de_usuarios.css
+     * Última Modificación: Diciembre 2024 - Implementación de Fase 3
+     -->
+    
+    <!-- Configuración básica del documento HTML -->
+    <meta charset="UTF-8">
+    <!-- Configuración para dispositivos móviles - hace que la página se vea bien en teléfonos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Actualizar Datos de Usuario - Joyería El Dorado</title>
+    
+    <!-- Enlaces a los archivos de estilos CSS -->
+    <!-- main.css contiene los estilos generales de toda la aplicación -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- administracion_de_usuarios.css contiene estilos específicos para esta página -->
+    <link rel="stylesheet" href="css/administracion_de_usuarios.css">
+</head>
+
+<!-- El body tiene la clase 'role-admin' para aplicar estilos específicos de administrador -->  
+<body class="role-admin">
+
+    <!-- --- Sección: Header de la Página --- -->
+    <!-- Esta sección contiene el logo de la joyería y la navegación principal -->
+    <header>
+        <div class="logo">
+            <a href="dashboard.html">
+                <img src="assets/logo.jpg" alt="Joyería El Dorado Logo">
+            </a>
+        </div>
+        
+        <!-- Botón para abrir el menú en dispositivos móviles -->
+        <button class="mobile-menu-toggle" aria-label="Abrir menú de navegación">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navegación principal del sitio -->
+        <nav role="navigation" aria-label="Navegación principal">
+            <ul>
+                <li><a href="dashboard.html">Inicio</a></li>
+                <li><a href="lista_de_productos.html">Catálogo</a></li>
+                <li class="nav-cliente-only"><a href="historial_ordenes.html">Mis Pedidos</a></li>
+                <li class="nav-admin-only"><a href="administracion_de_usuarios.html">Gestión de Usuarios</a></li>
+                <li class="nav-admin-vendor-only"><a href="gestion_de_productos.html">Gestión de Productos</a></li>
+                <li class="nav-admin-vendor-only"><a href="proceso_ventas.html">Procesar Venta</a></li>
+                <li class="nav-admin-only"><a href="reporte_ventas.html">Reportes</a></li>
+                <li class="nav-login-link"><a href="login.html">Iniciar Sesión</a></li>
+                <li class="nav-logout-link"><a href="#">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Controles de usuario (búsqueda, etc.) -->
+        <div class="user-controls">
+            <form class="search
+                <button type="submit" class="search-button" aria-label="Buscar">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <!-- --- Sección Principal: Contenido de la Página --- -->
+    <!-- Esta es la sección principal que contiene el formulario de actualización -->
+    <main class="main-container">
+        
+        <!-- --- Encabezado de la Página --- -->
+        <!-- Contiene el título principal y navegación de breadcrumb -->
+        <div class="page-header">
+            <h1>Actualizar Datos de Usuario</h1>
+            <nav class="breadcrumb" aria-label="Navegación de breadcrumb">
+                <a href="dashboard.html">Inicio</a> &gt; 
+                <a href="administracion_de_usuarios.html">Gestión de Usuarios</a> &gt; 
+                <span aria-current="page">Actualizar Datos</span>
+            </nav>
+        </div>
+
+        <!-- --- Formulario de Actualización de Datos --- -->
+        <!-- Este formulario permite buscar y editar información de usuarios -->
+        <div class="card-style form-update-user">
+            <form id="update-user-form">
+                
+                <!-- --- Sección de Búsqueda de Usuario --- -->
+                <!-- Campos para buscar al usuario que se quiere editar -->
+                <div class="form-group">
+                    <label for="search-name">Nombre del cliente</label>
+                    <div class="input-with-icon">
+                        <input type="text" id="search-name" class="form-input with-icon" placeholder="Q search">
+                        <span class="input-icon search-icon" title="Buscar por nombre">🔍</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="search-id">Identificación del cliente</label>
+                    <div class="input-with-icon">
+                        <input type="text" id="search-id" class="form-input with-icon" placeholder="Q search">
+                        <span class="input-icon search-icon" title="Buscar por identificación">🔍</span>
+                    </div>
+                    <!-- Mensaje de error cuando no se encuentra el usuario -->
+                    <span id="user-not-found-error" class="error-message" style="display: none;">El usuario no existe</span>
+                </div>
+
+                <!-- Línea separadora entre búsqueda y edición -->
+                <hr>
+                
+                <!-- --- Sección de Datos del Usuario --- -->
+                <!-- Campos para editar la información del usuario encontrado -->
+                <div class="form-group">
+                    <label for="user-email">Dirección de correo</label>
+                    <input type="email" id="user-email" class="form-input" disabled>
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-address">Dirección de entrega</label>
+                    <input type="text" id="user-address" class="form-input" disabled>
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-phone">Teléfono</label>
+                    <input type="tel" id="user-phone" class="form-input" disabled>
+                </div>
+
+                <!-- --- Botones de Acción --- -->
+                <!-- Botones para guardar cambios o cancelar la operación -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="update-data-btn" disabled>Actualizar Datos</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-update-btn">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- --- Sección: Footer de la Página --- -->
+    <!-- Esta sección contiene información de contacto y enlaces útiles -->
+    <footer>
+        <div class="footer-column">
+            <h3>Nuestra Joyería</h3>
+            <ul>
+                <li><a href="#">Quiénes Somos</a></li>
+                <li><a href="#">Nuestras Tiendas</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Atención al Cliente</h3>
+            <ul>
+                <li><a href="#">Contacto y Soporte</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Guía de Tallas</a></li>
+                <li><a href="#">Garantías</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Productos</h3>
+            <ul>
+                <li><a href="lista_de_productos.html">Anillos</a></li>
+                <li><a href="lista_de_productos.html">Collares</a></li>
+                <li><a href="lista_de_productos.html">Pulseras</a></li>
+                <li><a href="lista_de_productos.html">Aretes</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Siguenos</h3>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="YouTube">📺</a>
+            </div>
+        </div>
+        <div class="footer-country">
+            <p>Ubicación: Colombia</p>
+            <a href="#">Cambiar ubicación</a>
+        </div>
+    </footer>
+
+    <!-- --- Scripts JavaScript --- -->
+        <!-- menu.js contiene la lógica de navegación y gestión de roles -->
+    <script src="js/menu.js"></script>
+    <!-- actualizar_datos_usuario.js contiene la lógica específica de esta página -->
+    <script src="js/actualizar_datos_usuario.js"></script>
+
+</body>
+</html>
+    
