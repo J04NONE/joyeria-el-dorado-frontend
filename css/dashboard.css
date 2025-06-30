@@ -241,42 +241,44 @@
     color: var(--text-light);
 }
 
-/* Control de visibilidad por roles para acciones rápidas */
-/* Ocultar por defecto las acciones restringidas */
+/* --- Sección: Reglas de Visibilidad por Rol --- */
+/* Estas reglas controlan qué secciones ve cada tipo de usuario en el dashboard */
+
+/* 1. Ocultar por defecto todas las acciones específicas de rol */
 .action-admin-only,
-.action-admin-vendor {
-    display: none;
+.action-admin-vendor,
+.action-vendedor-only {
+    display: none; /* Ocultar por defecto */
 }
 
-/* Mostrar acciones solo para administradores */
+/* 2. Mostrar acciones solo para administradores */
 body.role-admin .action-admin-only,
 body.role-admin .action-admin-vendor {
-    display: block;
+    display: block; /* Mostrar para admin */
 }
 
-/* Mostrar acciones para vendedores (admin-vendor incluye vendedores) */
-body.role-vendor .action-admin-vendor {
-    display: block;
+/* 3. Mostrar acciones para vendedores */
+body.role-vendedor .action-admin-vendor,
+body.role-vendedor .action-vendedor-only {
+    display: block; /* Mostrar para vendedor */
 }
 
-/* Los clientes (role-cliente) mantienen display: none por defecto */
-
-/* --- Reglas de Visibilidad por Rol para el Contenido del Dashboard --- */
-/* 1. Ocultar por defecto los componentes específicos de rol */
+/* 4. Reglas para secciones específicas del dashboard */
+/* Ocultar por defecto las estadísticas y acciones rápidas específicas */
 .action-admin-vendor-only,
 .action-cliente-only {
-    display: none;
+    display: none; /* Ocultar por defecto */
 }
 
-/* 2. Mostrar las estadísticas SOLO para admin y vendedor */
+/* 5. Mostrar las estadísticas SOLO para admin y vendedor */
 body.role-admin .action-admin-vendor-only,
-body.role-vendor .action-admin-vendor-only {
-    display: grid; /* O el display original que tenga la sección de estadísticas */
+body.role-vendedor .action-admin-vendor-only {
+    display: grid; /* Mostrar como grid para las estadísticas */
 }
 
-/* 3. Mostrar el carrusel SOLO para cliente */
+/* 6. Mostrar el carrusel SOLO para clientes */
 body.role-cliente .action-cliente-only {
-    display: block; /* O el display adecuado para el carrusel */
+    display: block; /* Mostrar para cliente */
 }
 
 /* --- Estilos para el Carrusel de Productos --- */

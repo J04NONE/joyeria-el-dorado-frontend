@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                 </td>
-                <td>$${item.precio.toLocaleString('es-CO')}</td>
+                <td>$${item.precio.toLocaleString('es-CO')} COP</td>
                 <td>
                     <div class="quantity-control">
                         <button class="quantity-decrease" data-id="${item.id}">-</button>
@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="quantity-increase" data-id="${item.id}">+</button>
                     </div>
                 </td>
-                <td>$${itemSubtotal.toLocaleString('es-CO')}</td>
-                <td><button class="btn-icon-danger remove-item" data-id="${item.id}">🗑️</button></td>
+                <td>$${itemSubtotal.toLocaleString('es-CO')} COP</td>
+                <td><button class="btn-icon-danger remove-item" data-id="${item.id}" aria-label="Eliminar producto"><i class="fas fa-trash-alt"></i></button></td>
             `;
             tbody.appendChild(tr);
         });
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h2>Resumen de la Compra</h2>
                 <div class="summary-line">
                     <span>Subtotal:</span>
-                    <span id="summary-subtotal">$${subtotalGeneral.toLocaleString('es-CO')}</span>
+                    <span id="summary-subtotal">$${subtotalGeneral.toLocaleString('es-CO')} COP</span>
                 </div>
                 <div class="summary-line">
                     <span>Envío:</span>
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <hr>
                 <div class="summary-total">
                     <span>Total:</span>
-                    <span id="summary-total">$${subtotalGeneral.toLocaleString('es-CO')}</span>
+                    <span id="summary-total">$${subtotalGeneral.toLocaleString('es-CO')} COP</span>
                 </div>
                 <button class="btn btn-primary btn-full-width">Proceder al Pago</button>
             `;

@@ -255,13 +255,13 @@ tr:hover {
 
 /* Lógica para usuarios logueados: Ocultar login, mostrar logout y enlaces de su rol */
 body.role-cliente .nav-login-link,
-body.role-vendor .nav-login-link,
+body.role-vendedor .nav-login-link,
 body.role-admin .nav-login-link {
     display: none !important;     /* Ocultamos el login para usuarios logueados */
 }
 
 body.role-cliente .nav-logout-link,
-body.role-vendor .nav-logout-link,
+body.role-vendedor .nav-logout-link,
 body.role-admin .nav-logout-link {
     display: list-item !important; /* Mostramos el logout para usuarios logueados */
 }
@@ -270,11 +270,38 @@ body.role-cliente .nav-cliente-only {
     display: list-item !important; /* Mostramos enlaces solo para clientes */
 }
 
-body.role-vendor .nav-admin-vendor-only { 
+body.role-vendedor .nav-admin-vendor-only { 
     display: list-item !important; /* Mostramos enlaces para vendedores y admins */
 }
 
 body.role-admin .nav-admin-only,
 body.role-admin .nav-admin-vendor-only { 
     display: list-item !important; /* Mostramos enlaces solo para administradores */
+}
+
+/* --- Sección: Reglas para el Carrito --- */
+/* El carrito solo debe ser visible para clientes */
+
+/* Ocultar el carrito por defecto */
+.cart-icon-wrapper {
+    display: none !important;
+}
+
+/* Mostrar el carrito solo para clientes */
+body.role-cliente .cart-icon-wrapper {
+    display: block !important;
+}
+
+/* --- Sección: Utilidades de Accesibilidad --- */
+/* Clase para ocultar elementos visualmente pero mantenerlos accesibles para lectores de pantalla */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0); /* Para navegadores antiguos */
+    white-space: nowrap; /* Evita que el texto se rompa */
+    border: 0;
 }

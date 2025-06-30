@@ -49,19 +49,36 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add(`role-${userRole}`);
     
     // Mostramos en la consola qué rol tiene el usuario (solo para depuración)
-    console.log(`Rol actual: ${userRole}`); // Para depuración
+    console.log(`Rol aplicado al body: role-${userRole}`); // Para depuración
+
+    // --- Sección: Control de Visibilidad de Enlaces Login/Logout ---
+    // Controlamos manualmente la visibilidad de los enlaces de login y logout
+    // para complementar las reglas CSS
+    
+    const logoutLink = document.querySelector('.nav-logout-link');
+    const loginLink = document.querySelector('.nav-login-link');
+
+    if (userRole !== 'invitado') {
+        // Si está logueado, mostrar logout y ocultar login
+        if (logoutLink) logoutLink.style.display = 'list-item';
+        if (loginLink) loginLink.style.display = 'none';
+    } else {
+        // Si es invitado, mostrar login y ocultar logout
+        if (logoutLink) logoutLink.style.display = 'none';
+        if (loginLink) loginLink.style.display = 'list-item';
+    }
 
     // --- Sección: Funcionalidad de Cerrar Sesión ---
     // Cuando un usuario hace clic en "Cerrar Sesión", se elimina su rol
     // y se le redirige a la página de login.
 
     // Buscamos el enlace de "Cerrar Sesión" en la navegación
-    const logoutLink = document.querySelector('.nav-logout-link a');
+    const logoutLinkElement = document.querySelector('.nav-logout-link a');
     
     // Verificamos que el enlace exista antes de agregar funcionalidad
-    if (logoutLink) {
+    if (logoutLinkElement) {
         // Cuando se hace clic en "Cerrar Sesión"
-        logoutLink.addEventListener('click', (e) => {
+        logoutLinkElement.addEventListener('click', (e) => {
             e.preventDefault(); // Evitamos que el enlace funcione normalmente
             
             // Eliminamos el rol del usuario del almacenamiento local

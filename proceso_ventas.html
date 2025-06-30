@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proceso de Venta - Joyería El Dorado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/ventas.css">
 </head>
-<body class="role-vendor">
+<body class="role-vendedor">
     <header>
         <div class="logo">
             <a href="dashboard.html">
@@ -27,7 +28,7 @@
                 <li><a href="lista_de_productos.html">Catálogo</a></li>
                 <li class="nav-cliente-only"><a href="historial_ordenes.html">Mis Pedidos</a></li>
                 <li class="nav-admin-only"><a href="administracion_de_usuarios.html">Gestión de Usuarios</a></li>
-                <li class="nav-admin-vendor-only"><a href="gestion_de_productos.html">Gesti�n de Productos</a></li>
+                <li class="nav-admin-vendor-only"><a href="gestion_de_productos.html">Gestión de Productos</a></li>
                 <li class="nav-admin-vendor-only"><a href="proceso_ventas.html" aria-current="page">Procesar Venta</a></li>
                 <li class="nav-admin-only"><a href="reporte_ventas.html">Reportes</a></li>
                 <li class="nav-login-link"><a href="login.html">Iniciar Sesión</a></li>
@@ -37,12 +38,10 @@
         
         <div class="user-controls">
             <form class="search-form" role="search">
-                <input type="search" placeholder="Buscar artículo" class="search-input" aria-label="Buscar productos">
+                <label for="header-search" class="sr-only">Buscar productos</label>
+                <input type="search" id="header-search" placeholder="Buscar artículo" class="search-input" aria-label="Buscar productos">
                 <button type="submit" class="search-button" aria-label="Buscar">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.35-4.35"></path>
-                    </svg>
+                    <i class="fas fa-search"></i>
                 </button>
             </form>
         </div>
@@ -57,6 +56,7 @@
             <aside class="search-panel card-style">
                 <div class="search-section">
                     <h3>Buscar Cliente</h3>
+                    <label for="customer-search" class="sr-only">Buscar Cliente por nombre o ID</label>
                     <input type="search" id="customer-search" class="form-input" placeholder="Nombre o ID del cliente...">
                     <div id="customer-search-results" class="search-results">
                         <p>Cliente: Ana García</p>
@@ -65,15 +65,18 @@
                 <hr>
                 <div class="search-section">
                     <h3>Buscar Producto</h3>
+                    <label for="product-search" class="sr-only">Buscar Producto por nombre o referencia</label>
                     <input type="search" id="product-search" class="form-input" placeholder="Nombre o referencia del producto...">
                     <div id="product-search-results" class="search-results">
-                        <div class="producto__card--small">
+                        <div class="producto-card-small">
                             <img src="assets/anillo_diamante.jpg" alt="Anillo">
                             <div class="info">
                                 <h4>Anillo Solitario</h4>
                                 <p>$1,800.00</p>
                             </div>
-                            <button class="btn btn-sm btn-primary">+</button>
+                            <button class="btn btn-sm btn-primary" aria-label="Agregar producto">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -98,14 +101,22 @@
                                 <td><input type="number" class="form-input-sm" value="1" min="1"></td>
                                 <td>$1,800.00</td>
                                 <td>$1,800.00</td>
-                                <td><button class="btn-icon-danger">🗑️</button></td>
+                                <td>
+                                    <button class="btn-icon-danger" aria-label="Eliminar producto">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Collar de Esmeralda</td>
                                 <td><input type="number" class="form-input-sm" value="1" min="1"></td>
                                 <td>$2,500.00</td>
                                 <td>$2,500.00</td>
-                                <td><button class="btn-icon-danger">🗑️</button></td>
+                                <td>
+                                    <button class="btn-icon-danger" aria-label="Eliminar producto">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -125,14 +136,14 @@
                 <hr>
                 <div class="summary-total">
                     <span>Total:</span>
-                    <span id="summary-total">$5,117.00</span>
+                    <strong id="summary-total">$5,117.00</strong>
                 </div>
                 <div class="payment-methods">
                     <h3>Método de Pago</h3>
                     <select id="payment-method" class="form-input">
-                        <option>Efectivo</option>
-                        <option>Tarjeta de Crédito</option>
-                        <option>Transferencia</option>
+                        <option value="efectivo">Efectivo</option>
+                        <option value="tarjeta_credito">Tarjeta de Crédito</option>
+                        <option value="transferencia">Transferencia</option>
                     </select>
                 </div>
                 <button id="complete-sale-btn" class="btn btn-primary btn-full-width">Completar Venta</button>
@@ -171,10 +182,10 @@
         <div class="footer-column">
             <h3>Síguenos</h3>
             <div class="social-icons">
-                <a href="#" aria-label="Facebook">📘</a>
-                <a href="#" aria-label="Instagram">📷</a>
-                <a href="#" aria-label="Twitter">🐦</a>
-                <a href="#" aria-label="YouTube">📺</a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
         <div class="footer-country">

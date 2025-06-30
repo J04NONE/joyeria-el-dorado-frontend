@@ -241,57 +241,56 @@ nav ul li:hover::after {
 }
 
 /* --- Sección: Ícono del Carrito de Compras --- */
-/* El ícono del carrito muestra cuántos productos tiene el cliente en su carrito
-   y permite acceder rápidamente a la página del carrito. */
+/* El carrito solo debe ser visible para clientes logueados */
 
-/* Contenedor del ícono del carrito */
+/* Ocultar el carrito por defecto */
 .cart-icon-wrapper {
-    position: relative;            /* Para posicionar el contador */
-    margin-right: 1.5rem;          /* Espacio a la derecha */
-    display: flex;                 /* Para alinear elementos */
-    align-items: center;           /* Centramos verticalmente */
+    display: none;
+    position: relative;
+    margin-left: 20px;
 }
 
-/* Enlace del carrito */
+/* Mostrar el carrito solo para clientes */
+body.role-cliente .cart-icon-wrapper {
+    display: block;
+}
+
 .cart-icon-wrapper a {
-    color: white;                  /* Color blanco */
-    text-decoration: none;         /* Sin subrayado */
-    display: flex;                 /* Para alinear ícono y contador */
-    align-items: center;           /* Centramos verticalmente */
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
-/* Ícono del carrito */
 .cart-icon {
-    font-size: 1.5rem;             /* Tamaño del ícono */
-    transition: transform 0.3s ease; /* Transición suave */
-    margin-right: 5px;             /* Espacio a la derecha */
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
 }
 
-/* Efecto al pasar el mouse sobre el ícono del carrito */
 .cart-icon:hover {
-    transform: scale(1.1);         /* Se agranda ligeramente */
+    transform: scale(1.1);
 }
 
-/* Contador de productos en el carrito */
 .cart-count {
-    background-color: var(--danger-color); /* Fondo rojo para llamar la atención */
-    color: white;                  /* Texto blanco */
-    border-radius: 50%;            /* Forma circular */
-    width: 20px;                   /* Ancho fijo */
-    height: 20px;                  /* Alto fijo */
-    display: flex;                 /* Para centrar el número */
-    align-items: center;           /* Centramos verticalmente */
-    justify-content: center;       /* Centramos horizontalmente */
-    font-size: 12px;               /* Tamaño pequeño del número */
-    font-weight: bold;             /* Número en negrita */
-    position: absolute;            /* Posición absoluta */
-    top: -8px;                     /* Arriba del ícono */
-    right: -8px;                   /* A la derecha del ícono */
-    opacity: 0;                    /* Invisible por defecto */
-    transition: opacity 0.3s ease; /* Transición suave para aparecer/desaparecer */
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-/* Mostrar el contador cuando hay productos en el carrito */
 .cart-count.visible {
-    opacity: 1;                    /* Lo hacemos visible */
+    opacity: 1;
 }

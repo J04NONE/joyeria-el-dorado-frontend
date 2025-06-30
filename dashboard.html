@@ -19,6 +19,8 @@
     <title>Dashboard - Joyería El Dorado</title>
     
     <!-- Enlaces a los archivos de estilos CSS -->
+    <!-- Font Awesome para iconos profesionales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- main.css contiene los estilos generales de toda la aplicación -->
     <link rel="stylesheet" href="css/main.css">
     <!-- dashboard.css contiene estilos específicos para esta página principal -->
@@ -79,11 +81,7 @@
         <!-- Este ícono solo aparece para clientes logueados y muestra cuántos productos tienen en el carrito -->
         <div class="cart-icon-wrapper nav-cliente-only">
             <a href="carrito.html" aria-label="Ver carrito de compras">
-                <!-- Ícono SVG del carrito de compras -->
-                <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.24 17 6.5 17H20v-2H6.5c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.9 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
-                </svg>
-                <!-- Contador que muestra cuántos productos hay en el carrito -->
+                <i class="fas fa-shopping-cart cart-icon" aria-hidden="true"></i>
                 <span class="cart-count">0</span>
             </a>
         </div>
@@ -94,14 +92,12 @@
             <!-- Formulario de búsqueda -->
                 <form class="search-form" role="search">
                 <!-- Campo de texto para ingresar la búsqueda -->
-                    <input type="search" placeholder="Buscar artículo" class="search-input" aria-label="Buscar productos">
+                    <label for="header-search" class="sr-only">Buscar productos</label>
+                    <input type="search" id="header-search" placeholder="Buscar artículo" class="search-input" aria-label="Buscar productos">
                 <!-- Botón para ejecutar la búsqueda -->
                 <button type="submit" class="search-button" aria-label="Buscar">
                     <!-- Ícono SVG de lupa para el botón de búsqueda -->
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
+                        <i class="fas fa-search"></i>
                     </button>
                 </form>
             </div>
@@ -354,29 +350,40 @@
                 <!-- Esta acción solo aparece para vendedores y administradores -->
                 <a href="proceso_ventas.html" class="accion-card action-admin-vendor">
                     <!-- Ícono de la acción -->
-                    <div class="accion-icon">💰</div>
+                    <div class="accion-icon"><i class="fas fa-cash-register"></i></div>
                     <!-- Título de la acción -->
-                    <h3>Nueva Venta</h3>
+                    <h3>Procesar Venta</h3>
                     <!-- Descripción de la acción -->
                     <p>Procesar una nueva venta</p>
                 </a>
                 
-                <!-- --- Acción: Gesti�n de Productos --- -->
+                <!-- --- Acción: Gestión de Productos --- -->
                 <!-- Esta acción solo aparece para vendedores y administradores -->
                 <a href="gestion_de_productos.html" class="accion-card action-admin-vendor">
                     <!-- Ícono de la acción -->
-                    <div class="accion-icon">📦</div>
+                    <div class="accion-icon"><i class="fas fa-box"></i></div>
                     <!-- Título de la acción -->
                     <h3>Gestión de Productos</h3>
                     <!-- Descripción de la acción -->
                     <p>Gestionar productos del inventario</p>
                 </a>
                 
+                <!-- --- Acción: Gestión de Pedidos (Solo Vendedor) --- -->
+                <!-- Esta acción solo aparece para vendedores -->
+                <a href="historial_ordenes.html" class="accion-card action-vendedor-only">
+                    <!-- Ícono de la acción -->
+                    <div class="accion-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <!-- Título de la acción -->
+                    <h3>Gestión de Pedidos</h3>
+                    <!-- Descripción de la acción -->
+                    <p>Ver y gestionar pedidos de clientes</p>
+                </a>
+                
                 <!-- --- Acción: Ver Reportes --- -->
                 <!-- Esta acción solo aparece para administradores -->
                 <a href="reporte_ventas.html" class="accion-card action-admin-only">
                     <!-- Ícono de la acción -->
-                    <div class="accion-icon">📊</div>
+                    <div class="accion-icon"><i class="fas fa-chart-bar"></i></div>
                     <!-- Título de la acción -->
                     <h3>Ver Reportes</h3>
                     <!-- Descripción de la acción -->
@@ -387,7 +394,7 @@
                 <!-- Esta acción solo aparece para administradores -->
                 <a href="administracion_de_usuarios.html" class="accion-card action-admin-only">
                     <!-- Ícono de la acción -->
-                    <div class="accion-icon">👥</div>
+                    <div class="accion-icon"><i class="fas fa-users"></i></div>
                     <!-- Título de la acción -->
                     <h3>Gestionar Usuarios</h3>
                     <!-- Descripción de la acción -->
@@ -428,10 +435,10 @@
         <div class="footer-column">
             <h3>Síguenos</h3>
             <div class="social-icons">
-                <a href="#" aria-label="Facebook">📘</a>
-                <a href="#" aria-label="Instagram">📷</a>
-                <a href="#" aria-label="Twitter">🐦</a>
-                <a href="#" aria-label="YouTube">📺</a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
         <div class="footer-country">

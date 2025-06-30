@@ -447,7 +447,7 @@ body.role-admin .nav-admin-vendor-only {
 }
 
 /* Reglas de visibilidad para el rol de Vendedor */
-body.role-vendor .nav-admin-vendor-only {
+body.role-vendedor .nav-admin-vendor-only {
     display: list-item;
 }
 
@@ -466,7 +466,7 @@ body.role-admin header .nav-admin-vendor-only {
     display: list-item !important;
 }
 
-body.role-vendor header .nav-admin-vendor-only {
+body.role-vendedor header .nav-admin-vendor-only {
     display: list-item !important;
 }
 
@@ -482,6 +482,6 @@ body.role-cliente .action-cliente-only {
 }
 
 body.role-admin .action-cliente-only,
-body.role-vendor .action-cliente-only {
+body.role-vendedor .action-cliente-only {
     display: none !important;
 } 

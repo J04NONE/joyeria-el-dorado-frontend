@@ -19,8 +19,9 @@
     
     <!-- Enlaces a los archivos de estilos CSS -->
     <!-- main.css contiene los estilos generales de toda la aplicación -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- administracion_de_usuarios.css contiene estilos específicos para esta página -->
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/administracion_de_usuarios.css">
 </head>
 
@@ -61,12 +62,10 @@
         <!-- Controles de usuario (búsqueda, etc.) -->
         <div class="user-controls">
             <form class="search-form" role="search">
-                <input type="search" placeholder="Buscar artículo" class="search-input" aria-label="Buscar productos">
+                <label for="header-search" class="sr-only">Buscar productos</label>
+                <input type="search" id="header-search" placeholder="Buscar artículo" class="search-input" aria-label="Buscar productos">
                 <button type="submit" class="search-button" aria-label="Buscar">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.35-4.35"></path>
-                    </svg>
+                    <i class="fas fa-search"></i>
                 </button>
             </form>
         </div>
@@ -86,8 +85,10 @@
         <!-- --- Barra de Herramientas --- -->
         <!-- Contiene campos para filtrar y buscar usuarios -->
         <div class="toolbar card-style">
-            <input type="search" class="form-input" placeholder="Buscar por nombre o correo...">
-            <select class="form-input">
+            <label for="user-search" class="sr-only">Buscar usuarios por nombre o correo</label>
+            <input type="search" id="user-search" class="form-input" placeholder="Buscar por nombre o correo...">
+            <label for="role-filter" class="sr-only">Filtrar usuarios por rol</label>
+            <select id="role-filter" class="form-input">
                 <option value="">Filtrar por Rol</option>
                 <option value="admin">Administrador</option>
                 <option value="vendedor">Vendedor</option>
@@ -118,8 +119,8 @@
                         <td><span class="status-active">Activo</span></td>
                         <td>2025-01-15</td>
                         <td class="actions-cell">
-                            <a href="actualizar_datos_usuario.html?id=ana_garcia_001" class="btn-icon-edit" aria-label="Editar usuario Ana García">✏️</a>
-                            <button class="btn-icon-danger">🗑️</button>
+                            <a href="actualizar_datos_usuario.html?id=ana_garcia_001" class="btn-icon-edit" aria-label="Editar usuario Ana García"><i class="fas fa-pencil-alt"></i></a>
+                            <button class="btn-icon-danger" aria-label="Eliminar usuario Ana García"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -129,8 +130,8 @@
                         <td><span class="status-active">Activo</span></td>
                         <td>2025-02-20</td>
                         <td class="actions-cell">
-                            <a href="actualizar_datos_usuario.html?id=carlos_rivas_002" class="btn-icon-edit" aria-label="Editar usuario Carlos Rivas">✏️</a>
-                            <button class="btn-icon-danger">🗑️</button>
+                            <a href="actualizar_datos_usuario.html?id=carlos_rivas_002" class="btn-icon-edit" aria-label="Editar usuario Carlos Rivas"><i class="fas fa-pencil-alt"></i></a>
+                            <button class="btn-icon-danger" aria-label="Eliminar usuario Carlos Rivas"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -140,8 +141,8 @@
                         <td><span class="status-inactive">Inactivo</span></td>
                         <td>2025-03-10</td>
                         <td class="actions-cell">
-                            <a href="actualizar_datos_usuario.html?id=lucia_mendez_003" class="btn-icon-edit" aria-label="Editar usuario Lucía Mendez">✏️</a>
-                            <button class="btn-icon-danger">🗑️</button>
+                            <a href="actualizar_datos_usuario.html?id=lucia_mendez_003" class="btn-icon-edit" aria-label="Editar usuario Lucía Mendez"><i class="fas fa-pencil-alt"></i></a>
+                            <button class="btn-icon-danger" aria-label="Eliminar usuario Lucía Mendez"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -151,8 +152,8 @@
                         <td><span class="status-active">Activo</span></td>
                         <td>2025-01-30</td>
                         <td class="actions-cell">
-                            <a href="actualizar_datos_usuario.html?id=roberto_silva_004" class="btn-icon-edit" aria-label="Editar usuario Roberto Silva">✏️</a>
-                            <button class="btn-icon-danger">🗑️</button>
+                            <a href="actualizar_datos_usuario.html?id=roberto_silva_004" class="btn-icon-edit" aria-label="Editar usuario Roberto Silva"><i class="fas fa-pencil-alt"></i></a>
+                            <button class="btn-icon-danger" aria-label="Eliminar usuario Roberto Silva"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -162,8 +163,8 @@
                         <td><span class="status-active">Activo</span></td>
                         <td>2025-02-15</td>
                         <td class="actions-cell">
-                            <a href="actualizar_datos_usuario.html?id=maria_lopez_005" class="btn-icon-edit" aria-label="Editar usuario María López">✏️</a>
-                            <button class="btn-icon-danger">🗑️</button>
+                            <a href="actualizar_datos_usuario.html?id=maria_lopez_005" class="btn-icon-edit" aria-label="Editar usuario María López"><i class="fas fa-pencil-alt"></i></a>
+                            <button class="btn-icon-danger" aria-label="Eliminar usuario María López"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -204,10 +205,10 @@
         <div class="footer-column">
             <h3>Síguenos</h3>
             <div class="social-icons">
-                <a href="#" aria-label="Facebook">📘</a>
-                <a href="#" aria-label="Instagram">📷</a>
-                <a href="#" aria-label="Twitter">🐦</a>
-                <a href="#" aria-label="YouTube">📺</a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
         <div class="footer-country">

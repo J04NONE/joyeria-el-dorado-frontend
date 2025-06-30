@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eliminar Producto - Joyería El Dorado</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <header class="main-header">
         <nav class="main-nav">
-            </nav>
+            <label for="header-search" class="sr-only">Buscar productos</label>
+            <input type="search" id="header-search" name="header-search" placeholder="Buscar productos">
+            <button type="submit" class="search-button" aria-label="Buscar"><i class="fas fa-search"></i></button>
+        </nav>
     </header>
 
     <main class="main-content">
@@ -18,7 +22,7 @@
             <form class="product-search-form">
                 <div class="input-group">
                     <label for="product-reference">Referencia del producto</label>
-                    <input type="search" id="product-reference" name="product-reference" placeholder="Q search">
+                    <input type="search" id="product-reference" name="product-reference" placeholder="Ingrese la referencia del producto">
                 </div>
                 <div class="input-group">
                     <label for="product-modify-select">Modificar</label>
